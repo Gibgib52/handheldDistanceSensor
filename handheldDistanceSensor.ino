@@ -299,12 +299,14 @@ float getRange() {
   return distance;
 }
 
-float avgRange(int samples) {
+float avgRange(int samples, bool debug = false) {
   // get avg of samples
   float dists[samples];
   for(int i = 0; i < samples; i++){
-    lcd.setCursor(14,1);
-    lcd.print(i+1);
+    if(debug){
+      lcd.setCursor(14,1);
+      lcd.print(i+1);
+    }
     dists[i] = getRange();
     delay(50);
   }
