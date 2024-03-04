@@ -1,5 +1,8 @@
 #include <LiquidCrystal.h>
 #include <AlignedJoy.h>
+#include <AceSorting.h>
+using ace_sorting::shellSortKnuth;
+// shellSortKnuth()
 
 #define trigPin 2 // orange
 #define echoPin 3 // blue
@@ -172,7 +175,6 @@ void menuTest(){
 // makes periodic measurements, if they fall
 // below prescribedDist alert the user
 const int changeDelay = 100; // delay of changing prescribedDist
-
 int prescribedDist = 10;
 void menuAlarm(){
   lcd.clear();
@@ -297,7 +299,6 @@ float getRange() {
   return distance;
 }
 
-// may change this to median range to reject outliers better
 float avgRange(int samples) {
   // get avg of samples
   float dists[samples];
@@ -316,3 +317,33 @@ float avgRange(int samples) {
   float distance = total/samples;
   return distance;
 }
+
+float medianRange(int samples, bool debug = false){
+  // gather samples
+  float dists[samples];
+  for(int i = 0; i < samples; i++){
+    if(debug){
+      lcd.setCursor(14,1);
+      lcd.print(i+1);
+    }
+    dists[i] = getRange();
+    delay(50);
+  }
+
+  // get median
+  int len = sizeof(dists);
+  shellSortKnuth(dists, len);
+
+  // if len is odd return middle, if len is even return avg of middle values
+  if(!len % 2){
+    return dists[len/2];
+  } else{
+    int hi = ceil(len/2);
+    int lo = floor(len/2);
+
+    return (hi + lo)/2;
+  }
+}
+
+
+

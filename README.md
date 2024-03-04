@@ -7,7 +7,7 @@ uses:
 * HC-SR04 Ultrasonic Distance Sensor
 * Some analog stick i found
 
-Requires the [AlignedJoystick](https://github.com/PalladinoMarco/AlignedJoystick) library.
-
+Requires the [AlignedJoystick](https://github.com/PalladinoMarco/AlignedJoystick) library and the 
+[AceSorting](https://github.com/bxparks/AceSorting) library.
 
 The code will not be good; i know python, not c++
