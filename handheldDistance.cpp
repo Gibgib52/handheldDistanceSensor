@@ -1,15 +1,5 @@
-#include <Arduino.h>
-
-#include <LiquidCrystal.h>
-#include <AlignedJoy.h>
-
 #include "globals.h"
 #include "Ranger.hpp"
-
-#define trigButton 5
-#define joyXpin 0
-#define joyYpin 1
-
 
 // sketch here
 int main(){
