@@ -13,12 +13,9 @@ using ace_sorting::shellSortKnuth;
 #define joyXpin 0
 #define joyYpin 1
 
-<<<<<<< HEAD
 #define endl "\n"
 
 // why is lcd not global? why cant Menu.c or Ranger.h see it??????????
-=======
->>>>>>> parent of 80d89ec (restructure into multiple files)
 const int rs = 12, en = 11, d4 = 9, d5 = 8, d6 = 7, d7 = 6;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 AlignedJoy stick(joyXpin, joyYpin);
@@ -41,6 +38,69 @@ const int MAX_SAMPLES = 100;
 int samples = 1;
 
 const int UI_DELAY = 100; // ms delay for ui loops
+
+// returns distance in cm
+float getRange() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+
+  // pulse
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  float duration = pulseIn(echoPin, HIGH);
+  float distance = (duration*.0343)/2;
+  return distance;
+}
+
+float avgRange(int samples, bool debug = false) {
+  // get avg of samples
+  float dists[samples];
+  for(int i = 0; i < samples; i++){
+    if(debug){
+      lcd.setCursor(14,1);
+      lcd.print(i+1);
+    }
+    dists[i] = getRange();
+    delay(50);
+  }
+  
+  float total = 0;
+  for(int i = 0; i < samples; i++) {
+    total += dists[i];
+  }
+
+  float distance = total/samples;
+  return distance;
+}
+
+float medianRange(int samples, bool debug = false){
+  // gather samples
+  float dists[samples];
+  for(int i = 0; i < samples; i++){
+    if(debug){
+      lcd.setCursor(14,1);
+      lcd.print(i+1);
+    }
+    dists[i] = getRange();
+    delay(50);
+  }
+
+  // get median
+  int len = sizeof(dists);
+  shellSortKnuth(dists, len);
+
+  // if len is odd return middle, if len is even return avg of middle values
+  if(!len % 2){
+    return dists[len/2];
+  } else{
+    int hi = ceil(len/2);
+    int lo = floor(len/2);
+
+    return (hi + lo)/2;
+  }
+}
 
 void setup() {
   lcd.begin(16, 2);
@@ -286,68 +346,6 @@ bool joyBtnDown(){
   return button;
 }
 
-// returns distance in cm
-float getRange() {
-  digitalWrite(trigPin, LOW);
-  delayMicroseconds(2);
-
-  // pulse
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-
-  float duration = pulseIn(echoPin, HIGH);
-  float distance = (duration*.0343)/2;
-  return distance;
-}
-
-float avgRange(int samples, bool debug = false) {
-  // get avg of samples
-  float dists[samples];
-  for(int i = 0; i < samples; i++){
-    if(debug){
-      lcd.setCursor(14,1);
-      lcd.print(i+1);
-    }
-    dists[i] = getRange();
-    delay(50);
-  }
-  
-  float total = 0;
-  for(int i = 0; i < samples; i++) {
-    total += dists[i];
-  }
-
-  float distance = total/samples;
-  return distance;
-}
-
-float medianRange(int samples, bool debug = false){
-  // gather samples
-  float dists[samples];
-  for(int i = 0; i < samples; i++){
-    if(debug){
-      lcd.setCursor(14,1);
-      lcd.print(i+1);
-    }
-    dists[i] = getRange();
-    delay(50);
-  }
-
-  // get median
-  int len = sizeof(dists);
-  shellSortKnuth(dists, len);
-
-  // if len is odd return middle, if len is even return avg of middle values
-  if(!len % 2){
-    return dists[len/2];
-  } else{
-    int hi = ceil(len/2);
-    int lo = floor(len/2);
-
-    return (hi + lo)/2;
-  }
-}
 
 
 
