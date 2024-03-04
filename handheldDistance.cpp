@@ -29,8 +29,8 @@ int main(){
 
 
 
-
   // do not remove
   Serial.flush();
+  return 0;
 }
 
