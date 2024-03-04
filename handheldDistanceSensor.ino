@@ -92,7 +92,6 @@ void loop() {
   lcd.print("something went wrong.");
 
   delay(100);
-
 }
 
 // mainmenu / ranging menu
@@ -122,7 +121,6 @@ void menuMain(){
 
 void menuSettings(){
   while(true){
-
     lcd.clear();
     lcd.setCursor(15,0);
     lcd.print("S");
@@ -197,10 +195,6 @@ void menuAlarm(){
     delay(UI_DELAY);
 }
 
-// use for end of a menu... self explanatory
-void menuEnd(){
-  flashTxt("* END *");
-}
 
 // flashes text on lcd
 // default 2 flashes, 100 ms interval
@@ -223,6 +217,11 @@ void flashTxt(char* txt, int flashes = 2, int interval = 100, int x = 0, int y =
   }
 }
 
+// use for end of a menu... self explanatory
+void menuEnd(){
+  flashTxt("* END *");
+}
+
 
 // TODO: finish
 void alarmLoop(){
@@ -243,6 +242,9 @@ void alarmLoop(){
       flashTxt("* ALARM *", 2, 100, 0, 1);
     }
     
+    if(joyBtnDown()){
+      break;
+    }
   }
 }
 
@@ -271,7 +273,11 @@ int waitForInput() {
   }
 }
 
-
+// non-blocking, instantaneous check for btn down
+bool joyBtnDown(){
+  bool button = !digitalRead(trigButton);
+  return button;
+}
 
 
 
