@@ -160,13 +160,11 @@ void menuTest(){
     if(in == LEFT){
       menuSettings();
     } else{
-
-      // en is at 1100 1111 on the charmap
-      char en = 0b11001111;
+      // en is at 1100 1111 on the charmap, reverse it to 1111 1110
+      char en = 0b1111110;
       lcd.write(en);
     }
-
-
+    delay(UI_DELAY);
   }
 }
 
