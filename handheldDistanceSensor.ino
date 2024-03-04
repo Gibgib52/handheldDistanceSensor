@@ -147,6 +147,8 @@ void menuSettings(){
   }
 }
 
+
+// trying to write other chars from the charmap
 void menuTest(){
   while(true) {
     lcd.clear();
@@ -157,10 +159,10 @@ void menuTest(){
     int in = waitForInput();
     if(in == LEFT){
       menuSettings();
-    } // else if(true){
-    //   // lcd.write();
-    // }
+    } else{
 
+      lcd.write();
+    }
 
 
   }
@@ -169,6 +171,8 @@ void menuTest(){
 
 // makes periodic measurements, if they fall
 // below prescribedDist alert the user
+const int changeDelay = 100; // delay of changing prescribedDist
+
 int prescribedDist = 10;
 void menuAlarm(){
   lcd.clear();
@@ -182,15 +186,15 @@ void menuAlarm(){
 
   int in = waitForInput();
     if(in == BTN){
-      lcd.setCursor(15,1);
-      lcd.print("*");
       alarmLoop();
     } else if(in == RIGHT){
       menuMain();
     } else if(in == LEFT){
       menuEnd();
-    } else if (in == UP){
-
+    } else if(in == UP){
+      prescribedDist++;
+    } else if(in == DOWN){
+      prescribedDist--;
     }
     delay(UI_DELAY);
 }
@@ -241,7 +245,6 @@ void alarmLoop(){
     if(dist < pDistFloat){
       flashTxt("* ALARM *", 2, 100, 0, 1);
     }
-    
     if(joyBtnDown()){
       break;
     }
@@ -279,8 +282,6 @@ bool joyBtnDown(){
   return button;
 }
 
-
-
 // returns distance in cm
 float getRange() {
   digitalWrite(trigPin, LOW);
@@ -296,6 +297,7 @@ float getRange() {
   return distance;
 }
 
+// may change this to median range to reject outliers better
 float avgRange(int samples) {
   // get avg of samples
   float dists[samples];
