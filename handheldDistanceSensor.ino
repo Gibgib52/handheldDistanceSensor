@@ -232,7 +232,7 @@ void alarmLoop(){
     lcd.setCursor(15,0);
     lcd.print("A");
     lcd.setCursor(15,1);
-    lcd.print("*")
+    lcd.print("*");
     lcd.setCursor(0,0);
 
     float dist = avgRange(samples);
