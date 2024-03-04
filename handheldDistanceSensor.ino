@@ -161,7 +161,9 @@ void menuTest(){
       menuSettings();
     } else{
 
-      lcd.write();
+      // en is at 1100 1111 on the charmap
+      char en = 0b11001111;
+      lcd.write(en);
     }
 
 
