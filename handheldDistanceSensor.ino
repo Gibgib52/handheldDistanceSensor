@@ -192,11 +192,13 @@ void menuAlarm(){
     } else if(in == RIGHT){
       menuMain();
     } else if(in == LEFT){
-      menuEnd();
+      ;
     } else if(in == UP){
       prescribedDist++;
+      delay(changeDelay);
     } else if(in == DOWN){
       prescribedDist--;
+      delay(changeDelay);
     }
     delay(UI_DELAY);
 }
@@ -205,7 +207,7 @@ void menuAlarm(){
 // flashes text on lcd
 // default 2 flashes, 100 ms interval
 // preserves screen content(excluding what txt overwrites), doesnt lcd.clear()
-void flashTxt(char* txt, int flashes = 2, int interval = 100, int x = 0, int y = 0){
+void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y = 0){
   int len = strlen(txt);
   for(int i = 0; i < flashes; i++){
     // -- on
@@ -222,12 +224,6 @@ void flashTxt(char* txt, int flashes = 2, int interval = 100, int x = 0, int y =
     delay(interval);
   }
 }
-
-// use for end of a menu... self explanatory
-void menuEnd(){
-  flashTxt("* END *");
-}
-
 
 // TODO: finish
 void alarmLoop(){
