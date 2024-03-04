@@ -3,8 +3,6 @@
 #include <AceSorting.h>
 using ace_sorting::shellSortKnuth;
 
-
-
 #define trigPin 2 // orange
 #define echoPin 3 // blue
 
