@@ -2,10 +2,12 @@
 #include <AlignedJoy.h>
 #include <AceSorting.h>
 using ace_sorting::shellSortKnuth;
-// shellSortKnuth()
+
+
 
 #define trigPin 2 // orange
 #define echoPin 3 // blue
+
 #define endl "\n"
 
 #define trigButton 5
@@ -14,6 +16,8 @@ using ace_sorting::shellSortKnuth;
 #define joyYpin 1
 
 #define endl "\n"
+
+
 
 // why is lcd not global? why cant Menu.c or Ranger.h see it??????????
 const int rs = 12, en = 11, d4 = 9, d5 = 8, d6 = 7, d7 = 6;
@@ -38,6 +42,8 @@ const int MAX_SAMPLES = 100;
 int samples = 1;
 
 const int UI_DELAY = 100; // ms delay for ui loops
+
+
 
 // returns distance in cm
 float getRange() {
@@ -101,6 +107,7 @@ float medianRange(int samples, bool debug = false){
     return (hi + lo)/2;
   }
 }
+
 
 void setup() {
   lcd.begin(16, 2);
