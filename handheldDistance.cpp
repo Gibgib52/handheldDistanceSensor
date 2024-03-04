@@ -2,9 +2,8 @@
 
 #include <LiquidCrystal.h>
 #include <AlignedJoy.h>
-#include <AceSorting.h>
-using ace_sorting::shellSortKnuth;
 
+#include "globals.h"
 #include "Ranger.hpp"
 
 #define trigButton 5
