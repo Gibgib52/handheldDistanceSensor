@@ -9,7 +9,7 @@ int main(){
   Serial.println("serial started");
 
 
-  // sketch begin
+  // sketch begin ////////////////////////////////////////////
 
   const int rs = 12, en = 11, d4 = 9, d5 = 8, d6 = 7, d7 = 6;
   LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
@@ -18,6 +18,8 @@ int main(){
   lcd.begin(16,2);
   lcd.print("working");
 
+
+  // TODO: Rewrite all previous stuff to seperate files
   while(true){
     lcd.clear();
     float dist = getRange();
@@ -25,7 +27,7 @@ int main(){
     // delay(1000);
   }
 
-  // sketch end
+  // sketch end /////////////////////////////////
 
   // do not remove
   Serial.flush();
