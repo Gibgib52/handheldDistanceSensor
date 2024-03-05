@@ -28,5 +28,5 @@ extern LiquidCrystal lcd;
 extern AlignedJoy stick;
 
 extern int userSamples;
-extern int memRng;
+extern float memRng;
 
