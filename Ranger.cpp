@@ -4,6 +4,14 @@
 #include <AceSorting.h>
 using ace_sorting::shellSortKnuth;
 
+// setup for ranger
+void setupR(){
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(trigButton, INPUT_PULLUP);
+}
+
+
 // returns distance in cm
 float getRange() {
   digitalWrite(trigPin, LOW);
