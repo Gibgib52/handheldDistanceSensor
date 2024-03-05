@@ -15,16 +15,8 @@ int main(){
 
   setupM();
   lcd.begin(16,2);
-  lcd.print("Trigger to cont.");
-
-  lcd.setCursor(0,1);
-  // test ranger
-  setupR();
-  float tmpRng = getRange();
-  lcd.print(tmpRng);
-
-
   setupJ();
+  setupR();
   // wait for btn to continue
   while(true){
     if(waitForInput() == BTN){
