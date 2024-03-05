@@ -1,6 +1,8 @@
 #include "GJoy.hpp"
 #include "globals.hpp"
 
+// this file is somehow breaking everything when its header is included in main.................. fix tomorrow
+
 int waitForInput(){
   while(true) {
     // get positions
