@@ -11,7 +11,6 @@ void setupM(){
 
 // main menu, or ranging menu
 void menuMain(){
-
   // delay on menu switch
   delay(UI_SWITCH_DELAY);
 
