@@ -8,8 +8,8 @@
 
 void setupM(){
   userSamples = 1;
-  memRng = 5.2;
   mode = AVG;
+  memRng = 52.52;
 }
 
 // main menu, or ranging menu
@@ -41,8 +41,7 @@ void menuMain(){
     } else if(in == RIGHT){
       menuSettings();
     } else if(in == LEFT){
-      // menuAlarm();
-      ;
+      menuAlarm();
     }
     delay(UI_DELAY);
   }
@@ -135,7 +134,6 @@ void menuTest(){
 }
 
 int prescribedDist;
-const int changeDelay = 200;
 void menuAlarm(){
   waitForCenter();
   while(true){
@@ -146,7 +144,7 @@ void menuAlarm(){
 
     lcd.print("pDist=");
     lcd.print(prescribedDist);
-
+    waitForBtnUp();
 
     int in = waitForInput();
     if(in == BTN){
@@ -157,10 +155,8 @@ void menuAlarm(){
       ;
     } else if(in == UP){
       prescribedDist++;
-      delay(changeDelay);
     } else if(in == DOWN){
       prescribedDist--;
-      delay(changeDelay);
     }
     delay(UI_DELAY);
   }
@@ -168,7 +164,11 @@ void menuAlarm(){
 
 void alarmLoop(){
   float pDistFloat = (float)prescribedDist;
+  float prevAlarmDist = 0;
+  delay(200); // to stop instant break
   while(true) {
+    float dist = avgRange(userSamples, debug);
+    
     lcd.clear();
     // header
     lcd.setCursor(15,0);
@@ -177,12 +177,19 @@ void alarmLoop(){
     lcd.print("*");
     lcd.setCursor(0,0);
 
-    float dist = avgRange(userSamples, debug);
-    lcd.print("dist=");
+    lcd.print("dist=  ");
     lcd.print(dist);
+
+    lcd.setCursor(0,1);
+    lcd.print("prvAlr=");
+    lcd.print(prevAlarmDist);
+
     if(dist < pDistFloat){
-      flashTxt("* ALARM *", 2, 100, 0, 1);
+      prevAlarmDist = dist;
+      lcd.setCursor(0,0);
+      lcd.print("*ALARM*");
     }
+    delay(500);
     if(joyBtnDown()){
       break;
     }
