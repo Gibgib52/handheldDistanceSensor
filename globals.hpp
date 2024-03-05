@@ -2,8 +2,7 @@
 #include <LiquidCrystal.h>
 #include <AlignedJoy.h>
 
-extern LiquidCrystal lcd;
-extern AlignedJoy stick;
+// #pragma once
 
 // for ranger
 #define trigPin 2 // orange
@@ -25,6 +24,9 @@ extern AlignedJoy stick;
 #define UI_DELAY 100
 
 
-// running globals
+extern LiquidCrystal lcd;
+extern AlignedJoy stick;
+
 extern int userSamples;
 extern int memRng;
+

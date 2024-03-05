@@ -4,7 +4,7 @@
 // this file is somehow breaking everything when its header is included in main.................. fix tomorrow
 
 void setupJ(){
-  AlignedJoy stick(joyXpin, joyYpin);
+  ;
 }
 
 int waitForInput(){
