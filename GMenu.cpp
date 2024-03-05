@@ -1,5 +1,3 @@
-// GMenu is unused right now
-
 // #include "GMenu.hpp"
 
 // class Menu{
@@ -13,3 +11,5 @@
 //       r = right;
 //     }
 // }
+
+

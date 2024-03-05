@@ -17,7 +17,8 @@ int main(){
 
   lcd.begin(16,2);
   lcd.print("working");
-
+  
+  
 
   // TODO: Rewrite all previous stuff to seperate files
   
