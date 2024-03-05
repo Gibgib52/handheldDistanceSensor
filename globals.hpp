@@ -18,6 +18,7 @@ extern AlignedJoy stick;
 #define DOWN -1
 #define RIGHT 2
 #define LEFT -2
+#define BTN 3
 
 #define BAUD_RATE 9600
 
