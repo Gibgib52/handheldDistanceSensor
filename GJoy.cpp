@@ -25,3 +25,8 @@ int waitForInput(){
     }
   }
 }
+
+bool joyBtnDown(){
+  bool button = !digitalRead(trigButton);
+  return button;
+}
