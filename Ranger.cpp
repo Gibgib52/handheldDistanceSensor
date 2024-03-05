@@ -8,7 +8,6 @@ using ace_sorting::shellSortKnuth;
 void setupR(){
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-  pinMode(trigButton, INPUT_PULLUP);
 }
 
 
