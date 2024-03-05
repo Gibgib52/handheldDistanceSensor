@@ -30,7 +30,7 @@ void menuMain(){
       lcd.print("*");
       memRng = avgRange(userSamples);
     } else if(in == RIGHT){
-      // menuSettings();
+      menuSettings();
       ;
     } else if(in == LEFT){
       // menuAlarm();
@@ -41,6 +41,8 @@ void menuMain(){
 }
 
 void menuSettings(){
+  delay(UI_SWITCH_DELAY);
+
   while(true){
     lcd.clear();
     lcd.setCursor(15,0);
