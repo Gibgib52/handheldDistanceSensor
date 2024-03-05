@@ -1,5 +1,5 @@
-// #include "globals.hpp"
-// #include "Ranger.hpp"
+#include "globals.hpp"
+#include "Ranger.hpp"
 // #include "GJoy.hpp"
 // #include "Gmenu.hpp"
 

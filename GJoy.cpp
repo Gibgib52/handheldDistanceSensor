@@ -1,5 +1,5 @@
-// #include "GJoy.hpp"
-// #include "globals.hpp"
+#include "GJoy.hpp"
+#include "globals.hpp"
 
 int waitForInput(){
   while(true) {
