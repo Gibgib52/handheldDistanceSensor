@@ -9,8 +9,6 @@ void setupR(){
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   pinMode(trigButton, INPUT_PULLUP);
-  userSamples = 1;
-  memRng = 0;
 }
 
 

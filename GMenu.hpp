@@ -1,2 +1,3 @@
-// void menuMain();
-// void menuSettings();
+void setupM();
+void menuMain();
+void menuSettings();

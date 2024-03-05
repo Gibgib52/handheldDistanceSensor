@@ -1,7 +1,7 @@
 #include "globals.hpp"
 #include "Ranger.hpp"
-// #include "GJoy.hpp"
-// #include "Gmenu.hpp"
+#include "GJoy.hpp"
+#include "Gmenu.hpp"
 
 // sketch here
 int main(){
@@ -13,10 +13,7 @@ int main(){
 
   // sketch begin ////////////////////////////////////////////
 
-  const int rs = 12, en = 11, d4 = 9, d5 = 8, d6 = 7, d7 = 6;
-  LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-  AlignedJoy stick(joyXpin, joyYpin);
-
+  setupM();
   lcd.begin(16,2);
   lcd.print("Trigger to cont.");
 
@@ -26,6 +23,8 @@ int main(){
   float tmpRng = getRange();
   lcd.print(tmpRng);
 
+
+  setupJ();
   // wait for btn to continue
   while(true){
     if(waitForInput() == BTN){
@@ -33,7 +32,6 @@ int main(){
       ;
     }
   }
-  // TODO: Rewrite all previous stuff to seperate files
   
 
   // sketch end /////////////////////////////////
