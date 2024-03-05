@@ -13,3 +13,5 @@ extern AlignedJoy stick;
 #define trigButton 5
 #define joyXpin 0
 #define joyYpin 1
+
+#define BAUD_RATE 9600

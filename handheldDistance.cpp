@@ -5,7 +5,7 @@
 int main(){
   // do not remove
   init();
-  Serial.begin(9600);
+  Serial.begin(BAUD_RATE);
   Serial.println("serial started");
 
 
