@@ -14,4 +14,9 @@ extern AlignedJoy stick;
 #define joyXpin 0
 #define joyYpin 1
 
+#define UP 1
+#define DOWN -1
+#define RIGHT 2
+#define LEFT -2
+
 #define BAUD_RATE 9600

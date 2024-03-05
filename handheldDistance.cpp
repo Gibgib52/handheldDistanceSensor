@@ -1,4 +1,4 @@
-#include "globals.h"
+#include "globals.hpp"
 #include "Ranger.hpp"
 
 // sketch here
@@ -20,12 +20,7 @@ int main(){
 
 
   // TODO: Rewrite all previous stuff to seperate files
-  while(true){
-    lcd.clear();
-    float dist = getRange();
-    lcd.print(dist);
-    // delay(1000);
-  }
+  
 
   // sketch end /////////////////////////////////
 
