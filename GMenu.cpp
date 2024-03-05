@@ -64,9 +64,65 @@ void menuSettings(){
         userSamples--;
       }
     } else if(in == RIGHT) {
-      // menuTest();
+      menuTest();
       ;
     }
     delay(UI_DELAY);
   }
 }
+
+void menuTest(){
+  delay(UI_SWITCH_DELAY);
+  while(true) {
+    lcd.clear();
+    lcd.setCursor(15,0);
+    lcd.print("T");
+    lcd.setCursor(0,0);
+
+    int in = waitForInput();
+    if(in == LEFT){
+      menuSettings();
+    } else if(in == RIGHT){
+      ;
+    } else if(in == UP){
+      ;
+    } else if(in == DOWN){
+
+    } else if (in == BTN){
+      ;
+    } else{
+      // en is at 1100 1111 on the charmap, reverse it to 1111 1110
+      char en = 0b1111110;
+      lcd.write(en);
+    }
+    delay(UI_DELAY);
+  }
+}
+
+// template for menu structure
+void menuTemplate(){
+  delay(UI_SWITCH_DELAY);
+  while(true) {
+    lcd.clear();
+    lcd.setCursor(15,0);
+    lcd.print("?"); // replace this with 1 char to describe menu
+    lcd.setCursor(0,0);
+
+    int in = waitForInput();
+    if(in == LEFT){
+      ;
+    } else if(in == RIGHT){
+      ;
+    } else if(in == UP){
+      ;
+    } else if(in == DOWN){
+
+    } else if (in == BTN){
+      ;
+    } else{
+      ;
+    }
+    delay(UI_DELAY);
+  }
+}
+
