@@ -7,6 +7,8 @@ int waitForInput(){
     int y = stick.read(X);
     int x = stick.read(Y);
 
+    // stick.read returns analog value from 0 to 1023
+
     if(x > 800) {
       return RIGHT;
     } else if(x < 300){
