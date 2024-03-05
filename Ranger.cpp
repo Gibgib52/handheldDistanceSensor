@@ -4,11 +4,13 @@
 #include <AceSorting.h>
 using ace_sorting::shellSortKnuth;
 
-// setup for ranger
+// setup for ranger, and other stuff too
 void setupR(){
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   pinMode(trigButton, INPUT_PULLUP);
+  userSamples = 1;
+  memRng = 0;
 }
 
 

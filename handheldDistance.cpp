@@ -18,10 +18,20 @@ int main(){
   AlignedJoy stick(joyXpin, joyYpin);
 
   lcd.begin(16,2);
-  lcd.print("working");
-  
+  lcd.print("Trigger to cont.");
 
+  lcd.setCursor(0,1);
+  // test ranger
+  setupR();
+  float tmpRng = getRange();
+  lcd.print(tmpRng);
 
+  // wait for btn to continue
+  while(true){
+    if(waitForInput() == BTN){
+      menuMain();
+    }
+  }
   // TODO: Rewrite all previous stuff to seperate files
   
 

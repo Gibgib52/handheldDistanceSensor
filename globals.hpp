@@ -21,10 +21,10 @@ extern AlignedJoy stick;
 #define BTN 3
 
 #define BAUD_RATE 9600
-
+#define MAX_SAMPLES 100
 #define UI_DELAY 100
 
 
 // running globals
-extern int samples;
-extern int dsplyRng;
+extern int userSamples;
+extern int memRng;
