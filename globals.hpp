@@ -1,6 +1,6 @@
-#include <Arduino.h>
-#include <LiquidCrystal.h>
-#include <AlignedJoy.h>
+// #include <Arduino.h>
+// #include <LiquidCrystal.h>
+// #include <AlignedJoy.h>
 
 extern LiquidCrystal lcd;
 extern AlignedJoy stick;

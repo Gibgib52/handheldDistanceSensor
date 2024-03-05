@@ -1,7 +1,7 @@
-#include "globals.hpp"
-#include "Ranger.hpp"
-#include "GJoy.hpp"
-#include "Gmenu.hpp"
+// #include "globals.hpp"
+// #include "Ranger.hpp"
+// #include "GJoy.hpp"
+// #include "Gmenu.hpp"
 
 // sketch here
 int main(){

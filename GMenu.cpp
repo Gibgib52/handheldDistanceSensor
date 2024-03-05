@@ -1,7 +1,7 @@
-#include "globals.hpp"
-#include "GMenu.hpp"
-#include "Ranger.hpp"
-#include "GJoy.hpp"
+// #include "globals.hpp"
+// #include "GMenu.hpp"
+// #include "Ranger.hpp"
+// #include "GJoy.hpp"
 
 // main menu, or ranging menu
 // void menuMain(){
