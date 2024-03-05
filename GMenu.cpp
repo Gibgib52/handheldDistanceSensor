@@ -4,9 +4,8 @@
 #include "GJoy.hpp"
 
 void setupM(){
-  // userSamples = 1;
-  // memRng = 0;
-  ;
+  userSamples = 1;
+  memRng = 5.2;
 }
 
 
