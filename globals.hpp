@@ -26,6 +26,12 @@
 #define LEFT -2
 #define BTN 3
 
+// modes
+#define AVG 1
+#define MED 2
+
+extern int mode;
+
 extern LiquidCrystal lcd;
 extern AlignedJoy stick;
 

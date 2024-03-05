@@ -8,3 +8,6 @@ bool joyBtnDown();
 
 // blocks until joy is centered again
 void waitForCenter();
+
+// blocking call to wait for btn up
+void waitForBtnUp();

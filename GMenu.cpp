@@ -9,6 +9,7 @@
 void setupM(){
   userSamples = 1;
   memRng = 5.2;
+  mode = AVG;
 }
 
 // main menu, or ranging menu
@@ -22,6 +23,15 @@ void menuMain(){
 
     lcd.print(memRng);
     lcd.print(" cm");
+
+    // print samples and mode
+    lcd.setCursor(0,1);
+    if(mode == AVG){
+      lcd.print("avg ");
+    } else if(mode == MED){
+      lcd.print("med ");
+    }
+    lcd.print(userSamples);
 
     int in = waitForInput();
     if(in == BTN){
@@ -49,6 +59,14 @@ void menuSettings(){
     lcd.print("smpls=");
     lcd.print(userSamples);
 
+    lcd.setCursor(0,1);
+    lcd.print("mode=");
+    if(mode == AVG){
+      lcd.print("avg");
+    }else if(mode == MED){
+      lcd.print("med");
+    }
+
     int in = waitForInput();
     if(in == LEFT){
       menuMain();
@@ -62,7 +80,14 @@ void menuSettings(){
       }
     } else if(in == RIGHT) {
       menuTest();
-      ;
+    } else if(in == BTN){
+      // change mode on btn down
+      if(mode == AVG){
+        mode = MED;
+      } else if (mode == MED){
+        mode = AVG;
+      }
+      waitForBtnUp();
     }
     delay(UI_DELAY);
   }
@@ -93,7 +118,10 @@ void menuTest(){
     } else if(in == UP){
       ;
     } else if(in == DOWN){
-
+      // en is at 1100 1111 on the charmap, reverse it to 1111 1110
+      char en = 0b1111110;
+      lcd.setCursor(0,1);
+      lcd.write(en);
     } else if (in == BTN){ // toggle debug on BTN
       if(debug){
         debug = false;
@@ -101,11 +129,6 @@ void menuTest(){
         debug = true;
       }
       delay(100);
-    } else{
-      // en is at 1100 1111 on the charmap, reverse it to 1111 1110
-      char en = 0b1111110;
-      lcd.setCursor(0,1);
-      lcd.write(en);
     }
     delay(UI_DELAY);
   }

@@ -35,6 +35,15 @@ bool joyBtnDown(){
   return button;
 }
 
+void waitForBtnUp(){
+  bool button;
+  while(true){
+    button = joyBtnDown();
+    if(!button){
+      return;
+    }
+  }
+}
 void waitForCenter(){
   while(true){
     int y = stick.read(X);
