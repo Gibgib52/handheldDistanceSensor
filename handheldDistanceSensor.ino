@@ -14,4 +14,4 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 int userSamples;
 float memRng;
-// int prescribedDist;
+bool debug = false;

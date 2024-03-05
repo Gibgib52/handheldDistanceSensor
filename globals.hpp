@@ -32,3 +32,5 @@ extern AlignedJoy stick;
 extern int userSamples;
 extern float memRng;
 
+extern bool debug;
+

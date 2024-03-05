@@ -33,7 +33,7 @@ void menuMain(){
     if(in == BTN){
       lcd.setCursor(15,1);
       lcd.print("*");
-      memRng = avgRange(userSamples);
+      memRng = avgRange(userSamples, debug);
     } else if(in == RIGHT){
       menuSettings();
       ;
@@ -84,6 +84,15 @@ void menuTest(){
     lcd.print("T");
     lcd.setCursor(0,0);
 
+
+    lcd.print("debug=");
+
+    if(debug){
+      lcd.print("true");
+    } else {
+      lcd.print("false");
+    }
+
     int in = waitForInput();
     if(in == LEFT){
       menuSettings();
@@ -93,11 +102,16 @@ void menuTest(){
       ;
     } else if(in == DOWN){
 
-    } else if (in == BTN){
-      ;
+    } else if (in == BTN){ // toggle debug on BTN
+      if(debug){
+        debug == false;
+      } else{
+        debug == true;
+      }
     } else{
       // en is at 1100 1111 on the charmap, reverse it to 1111 1110
       char en = 0b1111110;
+      lcd.setCursor(0,1);
       lcd.write(en);
     }
     delay(UI_DELAY);
@@ -144,7 +158,7 @@ void alarmLoop(){
     lcd.print("*");
     lcd.setCursor(0,0);
 
-    float dist = avgRange(userSamples);
+    float dist = avgRange(userSamples, debug);
     lcd.print("dist=");
     lcd.print(dist);
     if(dist < pDistFloat){
