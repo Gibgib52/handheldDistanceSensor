@@ -7,7 +7,7 @@
 #define BAUD_RATE 9600
 #define MAX_SAMPLES 100
 #define UI_DELAY 100 // delay for menu loops
-#define UI_SWITCH_DELAY 100 // delay between switching menus
+#define UI_SWITCH_DELAY 500 // delay between switching menus
 
 // pin locations
 // for ranger

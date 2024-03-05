@@ -5,3 +5,6 @@ int waitForInput();
 
 // non blocking for joypress
 bool joyBtnDown();
+
+// blocks until joy is centered again
+void waitForCenter();

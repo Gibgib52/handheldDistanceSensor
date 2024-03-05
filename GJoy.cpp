@@ -34,3 +34,24 @@ bool joyBtnDown(){
   bool button = !digitalRead(trigButton);
   return button;
 }
+
+void waitForCenter(){
+  while(true){
+    int y = stick.read(X);
+    int x = stick.read(Y);
+
+    // stick.read returns analog value from 0 to 1023
+
+    if(x > 800) {
+      ;
+    } else if(x < 300){
+      ;
+    } else if(y > 800){
+      ;
+    } else if(y < 300){
+      ;
+    } else{
+      break;
+    }
+  }
+}

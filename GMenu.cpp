@@ -11,15 +11,9 @@ void setupM(){
   memRng = 5.2;
 }
 
-// util funcs end
-
-// menu funcs start
-
 // main menu, or ranging menu
 void menuMain(){
-  // delay on menu switch
-  delay(UI_SWITCH_DELAY);
-
+  waitForCenter();
   while(true){
     lcd.clear();
     lcd.setCursor(15,0);
@@ -36,7 +30,6 @@ void menuMain(){
       memRng = avgRange(userSamples, debug);
     } else if(in == RIGHT){
       menuSettings();
-      ;
     } else if(in == LEFT){
       // menuAlarm();
       ;
@@ -46,8 +39,7 @@ void menuMain(){
 }
 
 void menuSettings(){
-  delay(UI_SWITCH_DELAY);
-
+  waitForCenter();
   while(true){
     lcd.clear();
     lcd.setCursor(15,0);
@@ -77,7 +69,7 @@ void menuSettings(){
 }
 
 void menuTest(){
-  delay(UI_SWITCH_DELAY);
+  waitForCenter();
   while(true) {
     lcd.clear();
     lcd.setCursor(15,0);
@@ -104,10 +96,11 @@ void menuTest(){
 
     } else if (in == BTN){ // toggle debug on BTN
       if(debug){
-        debug == false;
+        debug = false;
       } else{
-        debug == true;
+        debug = true;
       }
+      delay(100);
     } else{
       // en is at 1100 1111 on the charmap, reverse it to 1111 1110
       char en = 0b1111110;
@@ -121,16 +114,18 @@ void menuTest(){
 int prescribedDist;
 const int changeDelay = 200;
 void menuAlarm(){
-  lcd.clear();
-  lcd.setCursor(15,0);
-  lcd.print("A");
-  lcd.setCursor(0,0);
+  waitForCenter();
+  while(true){
+    lcd.clear();
+    lcd.setCursor(15,0);
+    lcd.print("A");
+    lcd.setCursor(0,0);
 
-  lcd.print("pDist=");
-  lcd.print(prescribedDist);
+    lcd.print("pDist=");
+    lcd.print(prescribedDist);
 
 
-  int in = waitForInput();
+    int in = waitForInput();
     if(in == BTN){
       alarmLoop();
     } else if(in == RIGHT){
@@ -145,6 +140,7 @@ void menuAlarm(){
       delay(changeDelay);
     }
     delay(UI_DELAY);
+  }
 }
 
 void alarmLoop(){
