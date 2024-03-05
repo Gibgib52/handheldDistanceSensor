@@ -3,11 +3,38 @@
 #include "Ranger.hpp"
 #include "GJoy.hpp"
 
+// util funcs begin
+
 void setupM(){
   userSamples = 1;
   memRng = 5.2;
 }
 
+
+// flashes text on lcd
+// default 2 flashes, 100 ms interval
+// preserves screen content(excluding what txt overwrites), doesnt lcd.clear()
+void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y = 0){
+  int len = strlen(txt);
+  for(int i = 0; i < flashes; i++){
+    // -- on
+    lcd.setCursor(x,y);
+    lcd.print(txt);
+    delay(interval);
+
+    // -- off
+    lcd.setCursor(x,y);
+    // print blanks len times
+    for(int j = 0; j < len; j++){
+      lcd.print(" ");
+    }
+    delay(interval);
+  }
+}
+
+// util funcs end
+
+// menu funcs start
 
 // main menu, or ranging menu
 void menuMain(){
@@ -98,30 +125,54 @@ void menuTest(){
   }
 }
 
-// template for menu structure
-void menuTemplate(){
-  delay(UI_SWITCH_DELAY);
-  while(true) {
-    lcd.clear();
-    lcd.setCursor(15,0);
-    lcd.print("?"); // replace this with 1 char to describe menu
-    lcd.setCursor(0,0);
+int prescribedDist;
+const int changeDelay = 200;
+void menuAlarm(){
+  lcd.clear();
+  lcd.setCursor(15,0);
+  lcd.print("A");
+  lcd.setCursor(0,0);
 
-    int in = waitForInput();
-    if(in == LEFT){
-      ;
+  lcd.print("pDist=");
+  lcd.print(prescribedDist);
+
+
+  int in = waitForInput();
+    if(in == BTN){
+      alarmLoop();
     } else if(in == RIGHT){
+      menuMain();
+    } else if(in == LEFT){
       ;
     } else if(in == UP){
-      ;
+      prescribedDist++;
+      delay(changeDelay);
     } else if(in == DOWN){
-
-    } else if (in == BTN){
-      ;
-    } else{
-      ;
+      prescribedDist--;
+      delay(changeDelay);
     }
     delay(UI_DELAY);
-  }
 }
 
+void alarmLoop(){
+  float pDistFloat = (float)prescribedDist;
+  while(true) {
+    lcd.clear();
+    // header
+    lcd.setCursor(15,0);
+    lcd.print("A");
+    lcd.setCursor(15,1);
+    lcd.print("*");
+    lcd.setCursor(0,0);
+
+    float dist = avgRange(userSamples);
+    lcd.print("dist=");
+    lcd.print(dist);
+    if(dist < pDistFloat){
+      flashTxt("* ALARM *", 2, 100, 0, 1);
+    }
+    if(joyBtnDown()){
+      break;
+    }
+  }
+}

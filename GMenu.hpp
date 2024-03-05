@@ -1,11 +1,39 @@
 void setupM();
+void alarmLoop();
+void flashTxt();
+//////////////
 
-
-
-void menuTemplate(); // unused, but still declared to compile
-
-
-// void menuAlarm();
+void menuAlarm();
 void menuMain(); // ^^ left | VV right | <- order of menus
 void menuSettings();
 void menuTest();
+
+
+/*
+// template for menu structure
+void menuTemplate(){
+  delay(UI_SWITCH_DELAY);
+  while(true) {
+    lcd.clear();
+    lcd.setCursor(15,0);
+    lcd.print("?"); // replace this with 1 char to describe menu
+    lcd.setCursor(0,0);
+
+    int in = waitForInput();
+    if(in == LEFT){
+      ;
+    } else if(in == RIGHT){
+      ;
+    } else if(in == UP){
+      ;
+    } else if(in == DOWN){
+
+    } else if (in == BTN){
+      ;
+    } else{
+      ;
+    }
+    delay(UI_DELAY);
+  }
+}
+*/
