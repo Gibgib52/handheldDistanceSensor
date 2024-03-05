@@ -1,5 +1,7 @@
 #include "globals.hpp"
 #include "Ranger.hpp"
+#include "GJoy.hpp"
+#include "Gmenu.hpp"
 
 // sketch here
 int main(){
@@ -18,7 +20,7 @@ int main(){
   lcd.begin(16,2);
   lcd.print("working");
   
-  
+
 
   // TODO: Rewrite all previous stuff to seperate files
   

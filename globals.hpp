@@ -20,3 +20,10 @@ extern AlignedJoy stick;
 #define LEFT -2
 
 #define BAUD_RATE 9600
+
+#define UI_DELAY 100
+
+
+// running globals
+extern int samples;
+extern int dsplyRng;
