@@ -3,6 +3,7 @@ void alarmLoop();
 void flashTxt();
 //////////////
 
+
 void menuAlarm();
 void menuMain(); // ^^ left | VV right | <- order of menus
 void menuSettings();
