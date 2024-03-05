@@ -29,7 +29,8 @@ int main(){
   // wait for btn to continue
   while(true){
     if(waitForInput() == BTN){
-      menuMain();
+      // menuMain();
+      ;
     }
   }
   // TODO: Rewrite all previous stuff to seperate files

@@ -1,2 +1,2 @@
-void menuMain();
+// void menuMain();
 // void menuSettings();
