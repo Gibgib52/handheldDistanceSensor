@@ -28,8 +28,6 @@ void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y =
 // special chars
 
 namespace spec{
-  char en = 0b11111100;
-
   char a  = 0b10110001;
   char i  = 0b10110010;
   char u  = 0b10110011;
@@ -59,6 +57,8 @@ namespace spec{
   char tu = 0b11000010;
   char te = 0b11000011;
   char to = 0b11000100;
+
+  char xtu = 0b10101111;
 
   char na = 0b11000101;
   char ni = 0b11000110;
