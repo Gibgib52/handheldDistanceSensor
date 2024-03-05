@@ -1,5 +1,5 @@
 #include "Ranger.hpp"
-#include "globals.h"
+#include "globals.hpp"
 
 #include <AceSorting.h>
 using ace_sorting::shellSortKnuth;
