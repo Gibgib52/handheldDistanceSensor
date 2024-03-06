@@ -13,7 +13,6 @@ void menuTest();
 /*
 // template for menu structure
 void menuTemplate(){
-  delay(UI_SWITCH_DELAY);
   while(true) {
     lcd.clear();
     lcd.setCursor(15,0);
