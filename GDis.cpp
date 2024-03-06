@@ -2,6 +2,8 @@
 
 #include "GDis.hpp"
 #include "globals.hpp"
+#include <string.h>
+
 
 // flashes text on lcd
 // default 2 flashes, 100 ms interval
@@ -26,9 +28,11 @@ void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y =
 
 // write katakana out to the lcd
 // txt must be romaji seperated by spaces
-void writeKana(char txt){
+void writeKana(char txt[]){
+  String str = "asd";
   
-  // split txt on " "
+  // maybe use Regexp lib
+
 
   // match the tokens to a map
 

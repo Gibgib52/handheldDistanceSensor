@@ -20,7 +20,8 @@ int main(){
   setupJ();
   setupR();
 
-  writeKana("a i u ta o");
+  char temp[] = "a i u ta o";
+  writeKana(temp);
 
 
 
