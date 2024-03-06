@@ -2,12 +2,14 @@
 #include "Ranger.hpp"
 #include "GJoy.hpp"
 #include "Gmenu.hpp"
+#include "GDis.hpp"
 
 // sketch here
 int main(){
   // do not remove
   init();
   Serial.begin(BAUD_RATE);
+  while(Serial == NULL){};
   Serial.println("serial started");
 
 
@@ -17,6 +19,11 @@ int main(){
   lcd.begin(16,2);
   setupJ();
   setupR();
+
+  writeKana("a i u ta o");
+
+
+
   // wait for btn to continue
   while(true){
     if(waitForInput() == BTN){

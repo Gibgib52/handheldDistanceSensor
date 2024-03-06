@@ -24,7 +24,21 @@ void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y =
   }
 }
 
-namespace spec{
+// write katakana out to the lcd
+// txt must be romaji seperated by spaces
+void writeKana(char txt){
+  
+  // split txt on " "
+
+  // match the tokens to a map
+
+  // write the converted text to lcd
+
+}
+
+
+// will make this a map later
+namespace kana{
   char a  = 0b10110001;
   char i  = 0b10110010;
   char u  = 0b10110011;
