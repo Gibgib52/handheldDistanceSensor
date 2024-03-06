@@ -117,10 +117,8 @@ void menuTest(){
     } else if(in == UP){
       ;
     } else if(in == DOWN){
-      // en is at 1100 1111 on the charmap, reverse it to 1111 1110
-      char en = 0b1111110;
-      lcd.setCursor(0,1);
-      lcd.write(en);
+      // lcd.setCursor(0,1);
+      // lcd.write(1);
     } else if (in == BTN){ // toggle debug on BTN
       if(debug){
         debug = false;

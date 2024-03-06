@@ -24,9 +24,6 @@ void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y =
   }
 }
 
-
-// special chars
-
 namespace spec{
   char a  = 0b10110001;
   char i  = 0b10110010;
