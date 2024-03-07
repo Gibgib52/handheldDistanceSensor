@@ -3,7 +3,7 @@
 #include "GDis.hpp"
 #include "globals.hpp"
 #include <string.h>
-
+#include <Vector.h>
 
 // flashes text on lcd
 // default 2 flashes, 100 ms interval
@@ -29,9 +29,23 @@ void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y =
 // write katakana out to the lcd
 // txt must be romaji seperated by spaces
 void writeKana(char txt[]){
-  String str = "asd";
-  
-  // maybe use Regexp lib
+  String str = "fu bu ki n gu";
+
+
+  // https://sentry.io/answers/split-string-in-cpp/
+  Vector<String> total;
+  int i = 0;
+  while(i < str.length()){
+    i = str.indexOf(" ");// delim
+    total.push_back(str.substring(0, i));
+    str.remove(0, i+1); // i + length of delim
+  }
+
+  // print the vector
+  for(int i = 0; i < total.size(); i++){
+    String cur = total[i];
+    Serial.println(cur);
+  }
 
 
   // match the tokens to a map
