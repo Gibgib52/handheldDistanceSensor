@@ -7,7 +7,11 @@ uses:
 * HC-SR04 Ultrasonic Distance Sensor
 * Some analog stick i found
 
-Requires the [AlignedJoystick](https://github.com/PalladinoMarco/AlignedJoystick) library and the 
-[AceSorting](https://github.com/bxparks/AceSorting) library.
+Requires:
+* [ArxContainer](https://github.com/hideakitai/ArxContainer)
+* [AceSorting](https://github.com/bxparks/AceSorting)
+* [AlignedJoystick](https://github.com/PalladinoMarco/AlignedJoystick)
+
+all libraries can be found in the arduino ide's library manager
 
 The code will not be good; i know python, not c++
