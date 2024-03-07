@@ -3,7 +3,6 @@
 #include "GDis.hpp"
 #include "globals.hpp"
 #include <string.h>
-// #include <Vector.h>
 #include <ArxContainer.h>
 
 // flashes text on lcd
@@ -34,25 +33,38 @@ void writeKana(char txt[]){
 
 
   // https://sentry.io/answers/split-string-in-cpp/
-  std::vector<String> total;
+
+  // split on " ", add to vector
+  std::vector<String> totalRoma;
   int i = 0;
   while(i < str.length()){
     i = str.indexOf(" ");// delim
-    total.push_back(str.substring(0, i));
+    totalRoma.push_back(str.substring(0, i));
     str.remove(0, i+1); // i + length of delim
   }
 
-  // print the vector
-  for(int i = 0; i < total.size(); i++){
-    String cur = total[i];
+  // print the vector to see if i tokenized it correctly
+  for(int i = 0; i < totalRoma.size(); i++){
+    String cur = totalRoma[i];
     Serial.println(cur);
   }
 
 
   // match the tokens to a map
+  // https://github.com/hideakitai/ArxContainer/blob/main/examples/map/map.ino
+
+  std::vector<char> totalKana;
+  for(int i = 0; i < totalRoma.size(); i++){ // TODO: add catch for if no kana is found
+    String cur = totalRoma[i];
+    char curKana = kana[cur];
+    totalKana.push_back(curKana);
+  }
 
   // write the converted text to lcd
-
+  for(int i = 0; i < totalKana.size(); i++){
+    char cur = totalKana[i];
+    lcd.write(cur);
+  }
 }
 
 
