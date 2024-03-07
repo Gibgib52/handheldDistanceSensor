@@ -56,6 +56,13 @@ void writeKana(char txt[]){
 }
 
 
+// for dakuten kana like "gu"
+// python way:
+// {
+//   "gu": [0b10111000, 0b11011110],
+// }
+// for now write "ku ten" for "gu"
+
 std::map<String, char> kana {
   {"a", 0b10110001},
   {"i", 0b10110010},
@@ -80,14 +87,21 @@ std::map<String, char> kana {
   {"su", 0b10111101},
   {"se", 0b10111110},
   {"so", 0b10111111},
+
+  {"shi", 0b10111100},
  
   {"ta", 0b11000000},
   {"ti", 0b11000001},
   {"tu", 0b11000010},
   {"te", 0b11000011},
   {"to", 0b11000100},
- 
+
+  // dupes for different romaji-ization
+  {"chi", 0b11000001},
+  {"tsu", 0b11000010},
+
   {"xtu", 0b10101111},
+  {"xtsu", 0b10101111},
  
   {"na", 0b11000101},
   {"ni", 0b11000110},
@@ -100,6 +114,8 @@ std::map<String, char> kana {
   {"hu", 0b11001100},
   {"he", 0b11001101},
   {"ho", 0b11001110},
+
+  {"fu", 0b11001100},
  
   {"ma", 0b11001111},
   {"mi", 0b11010000},
