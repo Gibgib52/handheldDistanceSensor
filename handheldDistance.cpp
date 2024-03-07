@@ -1,8 +1,10 @@
+#include <ArxContainer.h>
 #include "globals.hpp"
 #include "Ranger.hpp"
 #include "GJoy.hpp"
 #include "Gmenu.hpp"
 #include "GDis.hpp"
+#include <string.h>
 
 // sketch here
 int main(){
@@ -20,10 +22,22 @@ int main(){
   setupJ();
   setupR();
 
-  char temp[] = "a i u ta o";
-  writeKana(temp);
+  // String temp = "fu bu ki nn gu";
+  // String temp = "a i u e o";
+  // writeKana(temp);
 
+  std::map<String, int> testMap = {
+    {"a", 0b10110001},
+    {"i", 0b10110010}
+  };
 
+  Serial.println(testMap["a"]);
+  lcd.write(testMap["a"]);
+  Serial.println(testMap["i"]);
+  lcd.write(testMap["i"]);
+
+  Serial.print(kana["a"]);
+  lcd.write(kana["a"]);
 
   // wait for btn to continue
   while(true){

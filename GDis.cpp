@@ -28,9 +28,7 @@ void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y =
 
 // write katakana out to the lcd
 // txt must be romaji seperated by spaces
-void writeKana(char txt[]){
-  String str = "fu bu ki n gu";
-
+void writeKana(String str){
 
   // https://sentry.io/answers/split-string-in-cpp/
 
@@ -56,16 +54,17 @@ void writeKana(char txt[]){
   std::vector<char> totalKana;
   for(int i = 0; i < totalRoma.size(); i++){ // TODO: add catch for if no kana is found
     String cur = totalRoma[i];
-    char curKana = kana[cur];
+    int curKana = kana[cur];
     totalKana.push_back(curKana);
   }
 
   // write the converted text to lcd
   for(int i = 0; i < totalKana.size(); i++){
-    char cur = totalKana[i];
+    int cur = totalKana[i];
     lcd.write(cur);
   }
 }
+
 
 
 // for dakuten kana like "gu"
@@ -75,7 +74,7 @@ void writeKana(char txt[]){
 // }
 // for now write "ku ten" for "gu"
 
-std::map<String, char> kana {
+std::map<String, int> kana = {
   {"a", 0b10110001},
   {"i", 0b10110010},
   {"u", 0b10110011},

@@ -2,6 +2,8 @@
 #include <Arduino.h>
 #include <LiquidCrystal.h>
 #include <AlignedJoy.h>
+#include <ArxContainer.h>
+#include <string.h>
 
 #include "globals.hpp"
 
@@ -16,3 +18,4 @@ int userSamples;
 float memRng;
 bool debug = false;
 int mode;
+extern std::map<String, int> kana;

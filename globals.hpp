@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <LiquidCrystal.h>
 #include <AlignedJoy.h>
-
+#include <ArxContainer.h>
 
 // settings
 #define BAUD_RATE 9600
@@ -40,3 +40,4 @@ extern float memRng;
 
 extern bool debug;
 
+extern std::map<String, int> kana;
