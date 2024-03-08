@@ -20,6 +20,9 @@
 
 #define LIGHT_PIN 31
 
+// lcd pins
+const int rs = 12, en = 11, d4 = 9, d5 = 8, d6 = 7, d7 = 6;
+
 // no changing below
 
 #define UP 1

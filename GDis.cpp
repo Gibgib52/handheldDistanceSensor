@@ -75,8 +75,6 @@ void writeKana(String str){
   Serial.println();
 }
 
-
-
 // for dakuten kana like "gu"
 // python way:
 // {
@@ -86,6 +84,7 @@ void writeKana(String str){
 
 // making size_t = 512 fixed the problem
 // size could problably be adjusted later
+// use () for jp style quotes
 std::map<String, int, 64> kana = {
   {"a", 0b10110001},
   {"i", 0b10110010},
@@ -167,8 +166,11 @@ std::map<String, int, 64> kana = {
   // dakuten and handakuten
   {"ten", 0b11011110},
   {"han", 0b11011111},
+
+  {"(", }
 };
 
+// unused
 std::map<String, int, 64> dakutenKana = {
   {"ga", 0b10110110},
   {"gi", 0b10110111},
@@ -196,3 +198,16 @@ std::map<String, int, 64> dakutenKana = {
   {"be", 0b11001101},
   {"bo", 0b11001110},
 };
+
+// other special chars
+namespace spec{
+  int alpha = 0b11100000;
+  int beta = 0b11100010;
+  int epsilon = 0b11100011;
+  int mu = 0b11100100;
+  int micro = mu;
+
+  int sqrt = 0b11101000;
+
+
+}
