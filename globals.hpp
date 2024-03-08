@@ -18,6 +18,8 @@
 #define joyXpin 0
 #define joyYpin 1
 
+#define LIGHT_PIN 31
+
 // no changing below
 
 #define UP 1
@@ -38,6 +40,8 @@ extern AlignedJoy stick;
 extern int userSamples;
 extern float memRng;
 
+extern bool light;
+
 extern bool debug;
 
-extern std::map<String, int, 512> kana;
+extern std::map<String, int, 64> kana;

@@ -22,9 +22,16 @@ int main(){
   setupJ();
   setupR();
 
+  lcd.print("press btn");
+
   String temp = "fu fu ten ki nn ku ten";
   // String temp = "a i u e o o o";
+  lcd.setCursor(0,1);
   writeKana(temp);
+
+  digitalWrite(LIGHT_PIN, HIGH);
+  delay(50);
+  digitalWrite(LIGHT_PIN, LOW);
 
   // wait for btn to continue
   while(true){

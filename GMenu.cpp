@@ -10,7 +10,13 @@ void setupM(){
   userSamples = 1;
   mode = AVG;
   memRng = 52.52;
+  light = false;
+
+  pinMode(LIGHT_PIN, OUTPUT);
 }
+
+
+//TODO these menus should be made into objects 
 
 // main menu, or ranging menu
 void menuMain(){
@@ -51,8 +57,8 @@ void menuSettings(){
   waitForCenter();
   while(true){
     lcd.clear();
-    lcd.setCursor(15,0);
-    lcd.print("S");
+    lcd.setCursor(14,0);
+    lcd.print("S1");
     lcd.setCursor(0,0);
 
     lcd.print("smpls=");
@@ -78,7 +84,7 @@ void menuSettings(){
         userSamples--;
       }
     } else if(in == RIGHT) {
-      menuTest();
+      menuSettings2();
     } else if(in == BTN){
       // change mode on btn down
       if(mode == AVG){
@@ -88,6 +94,49 @@ void menuSettings(){
       }
       waitForBtnUp();
     }
+    delay(UI_DELAY);
+  }
+}
+
+
+
+void menuSettings2(){
+  waitForCenter();
+  while(true){
+    lcd.clear();
+    lcd.setCursor(14,0);
+    lcd.print("S2");
+    lcd.setCursor(0,0);
+
+
+    // print light state
+    lcd.print("light=");
+    if(light){
+      lcd.print("on");
+    } else {
+      lcd.print("off");
+    }
+
+
+    int in = waitForInput();
+    if(in == LEFT){
+      menuSettings();
+    } else if(in == UP){
+      digitalWrite(LIGHT_PIN, HIGH);
+    } else if(in == DOWN){
+      digitalWrite(LIGHT_PIN, LOW);
+    } else if(in == RIGHT) {
+      menuTest();
+    } else if(in == BTN){
+      waitForBtnUp();
+      if(light){
+        light = false;
+      }else if(!light){
+        light = true;
+      }
+      digitalWrite(LIGHT_PIN, light);
+    }
+
     delay(UI_DELAY);
   }
 }
@@ -111,7 +160,7 @@ void menuTest(){
 
     int in = waitForInput();
     if(in == LEFT){
-      menuSettings();
+      menuSettings2();
     } else if(in == RIGHT){
       ;
     } else if(in == UP){

@@ -29,6 +29,10 @@ void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y =
 
 // write katakana out to the lcd
 // txt must be romaji seperated by spaces
+// if you want to write with dakuten use "ten" or "han"
+// eg for "bu" you would write "fu ten"
+
+//TODO: add automatic dakuten
 void writeKana(String str){
 
   // https://sentry.io/answers/split-string-in-cpp/
@@ -45,7 +49,7 @@ void writeKana(String str){
   // print the vector to see if i tokenized it correctly
   for(int i = 0; i < totalRoma.size(); i++){
     String cur = totalRoma[i];
-    Serial.println(cur);
+    // Serial.println(cur);
   }
 
 
@@ -53,8 +57,9 @@ void writeKana(String str){
   // https://github.com/hideakitai/ArxContainer/blob/main/examples/map/map.ino
 
   std::vector<char> totalKana;
-  for(int i = 0; i < totalRoma.size(); i++){ // TODO: add catch for if no kana is found
+  for(int i = 0; i < totalRoma.size(); i++){
     String cur = totalRoma[i];
+
     int curKana = kana[cur];
     totalKana.push_back(curKana);
   }
@@ -62,8 +67,12 @@ void writeKana(String str){
   // write the converted text to lcd
   for(int i = 0; i < totalKana.size(); i++){
     int cur = totalKana[i];
+
     lcd.write(cur);
+    Serial.print(" ");
+    Serial.print(cur);
   }
+  Serial.println();
 }
 
 
@@ -77,7 +86,7 @@ void writeKana(String str){
 
 // making size_t = 512 fixed the problem
 // size could problably be adjusted later
-std::map<String, int, 512> kana = {
+std::map<String, int, 64> kana = {
   {"a", 0b10110001},
   {"i", 0b10110010},
   {"u", 0b10110011},
@@ -160,3 +169,30 @@ std::map<String, int, 512> kana = {
   {"han", 0b11011111},
 };
 
+std::map<String, int, 64> dakutenKana = {
+  {"ga", 0b10110110},
+  {"gi", 0b10110111},
+  {"gu", 0b10111000},
+  {"ge", 0b10111001},
+  {"go", 0b10111010},
+
+  {"za", 0b10111011},
+  {"zi", 0b10111100},
+  {"zu", 0b10111101},
+  {"ze", 0b10111110},
+  {"zo", 0b10111111},
+
+  {"ji", 0b10111100},
+
+  {"da", 0b11000000},
+  {"di", 0b11000001},
+  {"du", 0b11000010},
+  {"de", 0b11000011},
+  {"do", 0b11000100},
+
+  {"ba", 0b11001010},
+  {"bi", 0b11001011},
+  {"bu", 0b11001100},
+  {"be", 0b11001101},
+  {"bo", 0b11001110},
+};
