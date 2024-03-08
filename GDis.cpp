@@ -2,8 +2,9 @@
 
 #include "GDis.hpp"
 #include "globals.hpp"
-#include <string.h>
 #include <ArxContainer.h>
+#include <string.h>
+
 
 // flashes text on lcd
 // default 2 flashes, 100 ms interval
@@ -74,7 +75,9 @@ void writeKana(String str){
 // }
 // for now write "ku ten" for "gu"
 
-std::map<String, int> kana = {
+// making size_t = 512 fixed the problem
+// size could problably be adjusted later
+std::map<String, int, 512> kana = {
   {"a", 0b10110001},
   {"i", 0b10110010},
   {"u", 0b10110011},
@@ -154,6 +157,6 @@ std::map<String, int> kana = {
 
   // dakuten and handakuten
   {"ten", 0b11011110},
-  {"han", 0b11011111}
+  {"han", 0b11011111},
 };
 

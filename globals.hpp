@@ -40,4 +40,4 @@ extern float memRng;
 
 extern bool debug;
 
-extern std::map<String, int> kana;
+extern std::map<String, int, 512> kana;

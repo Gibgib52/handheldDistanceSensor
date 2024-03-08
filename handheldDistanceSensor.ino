@@ -18,4 +18,4 @@ int userSamples;
 float memRng;
 bool debug = false;
 int mode;
-extern std::map<String, int> kana;
+extern std::map<String, int, 512> kana;

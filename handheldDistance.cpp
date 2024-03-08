@@ -22,22 +22,9 @@ int main(){
   setupJ();
   setupR();
 
-  // String temp = "fu bu ki nn gu";
-  // String temp = "a i u e o";
-  // writeKana(temp);
-
-  std::map<String, int> testMap = {
-    {"a", 0b10110001},
-    {"i", 0b10110010}
-  };
-
-  Serial.println(testMap["a"]);
-  lcd.write(testMap["a"]);
-  Serial.println(testMap["i"]);
-  lcd.write(testMap["i"]);
-
-  Serial.print(kana["a"]);
-  lcd.write(kana["a"]);
+  String temp = "fu fu ten ki nn ku ten";
+  // String temp = "a i u e o o o";
+  writeKana(temp);
 
   // wait for btn to continue
   while(true){
