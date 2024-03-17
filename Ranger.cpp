@@ -1,17 +1,35 @@
+#include <math.h>
 #include "Ranger.hpp"
 #include "globals.hpp"
 
 #include <AceSorting.h>
 using ace_sorting::shellSortKnuth;
 
-// setup for ranger, and other stuff too
+// setup ranger
 void setupR(){
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
+
+  float humidity = 0.5; // in percent relative humidity
+  float temp = 20.0; // celsius
+  float c = 0.0343; // speed of sound, in cm/us
 }
 
+// update humid and temp with current readings
+//TODO: read from humid and temp sensor
+//TODO: add new menu for calibration and manual adjustment of temp and humid values
+void calibrate(){
+  // humidity = ;
+  // temp = ;
+
+  // update current speed of sound https://www.reddit.com/r/arduino/comments/gdysbx/temperature_and_humidity_ultrasonic_rangefinder/
+  //  base c   temp coeff     humid coeff
+  c = 331.4 + (0.606*temp) + (0.0124*humidity);
+
+}
 
 // returns distance in cm
+//WIP: Account for humid and temp
 float getRange() {
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
@@ -21,8 +39,13 @@ float getRange() {
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
 
-  float duration = pulseIn(echoPin, HIGH);
-  float distance = (duration*.0343)/2;
+  float duration = pulseIn(echoPin, HIGH); // pulseIn returns time in microseconds
+
+  
+
+
+
+  float distance = (duration*0.0343)/2;
   return distance;
 }
 

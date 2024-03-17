@@ -22,3 +22,7 @@ int mode;
 extern std::map<String, int, 64> kana;
 
 bool light;
+
+extern float humidity;
+extern float temp;
+extern float c;
