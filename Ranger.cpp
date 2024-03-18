@@ -1,14 +1,18 @@
 #include <math.h>
 #include "Ranger.hpp"
 #include "globals.hpp"
+#include "dht11.h"
 
 #include <AceSorting.h>
 using ace_sorting::shellSortKnuth;
+
 
 // setup ranger
 void setupR(){
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
+
+  dht11 DHT11;
 
   float humidity = 0.5; // in percent relative humidity
   float temp = 20.0; // celsius
@@ -19,12 +23,12 @@ void setupR(){
 //TODO: read from humid and temp sensor
 //TODO: add new menu for calibration and manual adjustment of temp and humid values
 void calibrate(){
-  // humidity = ;
-  // temp = ;
 
+  lcd.print(temp);
+  
   // update current speed of sound https://www.reddit.com/r/arduino/comments/gdysbx/temperature_and_humidity_ultrasonic_rangefinder/
   //  base c   temp coeff     humid coeff
-  c = 331.4 + (0.606*temp) + (0.0124*humidity);
+  // c = 331.4 + (0.606*temp) + (0.0124*humidity);
 
 }
 

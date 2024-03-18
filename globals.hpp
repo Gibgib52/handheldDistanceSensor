@@ -2,6 +2,7 @@
 #include <LiquidCrystal.h>
 #include <AlignedJoy.h>
 #include <ArxContainer.h>
+#include "dht11.h"
 
 // settings
 #define BAUD_RATE 9600
@@ -20,8 +21,12 @@
 
 #define LIGHT_PIN 31
 
+#define DHT_PIN 34
+
+
 // lcd pins
 const int rs = 12, en = 11, d4 = 9, d5 = 8, d6 = 7, d7 = 6;
+
 
 // no changing below
 
@@ -52,3 +57,5 @@ extern std::map<String, int, 64> kana;
 extern float humidity;
 extern float temp;
 extern float c;
+
+extern dht11 DHT11;

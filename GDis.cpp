@@ -166,8 +166,6 @@ std::map<String, int, 64> kana = {
   // dakuten and handakuten
   {"ten", 0b11011110},
   {"han", 0b11011111},
-
-  {"(", }
 };
 
 // unused
@@ -209,5 +207,8 @@ namespace spec{
 
   int sqrt = 0b11101000;
 
+  int lArrow = 0b01111110;
+  int rArrow = 0b01111111;
 
+  int deg = 0b11011111;
 }
