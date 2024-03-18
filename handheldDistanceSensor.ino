@@ -28,3 +28,6 @@ extern dht11 DHT11;
 extern float humidity;
 extern float temp;
 extern float c;
+
+
+// REWRITE THIS WHOLE THING, figure out how multi-file works in cpp
