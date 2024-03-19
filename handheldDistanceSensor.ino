@@ -26,7 +26,7 @@ bool light;
 extern dht11 DHT11;
 
 extern float humidity;
-extern float temp;
+extern float temperature;
 extern float c;
 
 

@@ -55,7 +55,7 @@ extern bool debug;
 extern std::map<String, int, 64> kana;
 
 extern float humidity;
-extern float temp;
+extern float temperature;
 extern float c;
 
 extern dht11 DHT11;

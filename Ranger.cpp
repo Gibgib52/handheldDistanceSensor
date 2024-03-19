@@ -6,6 +6,11 @@
 #include <AceSorting.h>
 using ace_sorting::shellSortKnuth;
 
+// extern must be defined in file scope, not function scope
+
+float humidity = 0.5; // in percent relative humidity
+float temperature = 20.0; // celsius
+float c = 0.0343; // speed of sound, in cm/us
 
 // setup ranger
 void setupR(){
@@ -13,10 +18,6 @@ void setupR(){
   pinMode(echoPin, INPUT);
 
   dht11 DHT11;
-
-  float humidity = 0.5; // in percent relative humidity
-  float temp = 20.0; // celsius
-  float c = 0.0343; // speed of sound, in cm/us
 }
 
 // update humid and temp with current readings
@@ -24,11 +25,11 @@ void setupR(){
 //TODO: add new menu for calibration and manual adjustment of temp and humid values
 void calibrate(){
 
-  lcd.print(temp);
+  lcd.print(temperature);
   
   // update current speed of sound https://www.reddit.com/r/arduino/comments/gdysbx/temperature_and_humidity_ultrasonic_rangefinder/
   //  base c   temp coeff     humid coeff
-  // c = 331.4 + (0.606*temp) + (0.0124*humidity);
+  c = 331.4 + (0.606*temperature) + (0.0124*humidity);
 
 }
 

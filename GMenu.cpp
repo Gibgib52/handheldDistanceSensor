@@ -98,8 +98,6 @@ void menuSettings(){
   }
 }
 
-
-
 void menuSettings2(){
   waitForCenter();
   while(true){
@@ -126,7 +124,7 @@ void menuSettings2(){
     } else if(in == DOWN){
       digitalWrite(LIGHT_PIN, LOW);
     } else if(in == RIGHT) {
-      menuTest();
+      menuSettings3();
     } else if(in == BTN){
       waitForBtnUp();
       if(light){
@@ -135,6 +133,46 @@ void menuSettings2(){
         light = true;
       }
       digitalWrite(LIGHT_PIN, light);
+    }
+
+    delay(UI_DELAY);
+  }
+}
+
+// calibrate automatic
+void menuSettings3(){
+  waitForCenter();
+  while(true){
+    lcd.clear();
+    lcd.setCursor(14,0);
+    lcd.print("CA");
+    lcd.setCursor(0,0);
+
+
+    lcd.print("tmp=");
+    lcd.print(temperature);
+
+    lcd.setCursor(0, 1);
+    lcd.print("Hmd=");
+    lcd.print(humidity);
+
+
+
+    int in = waitForInput();
+    if(in == LEFT){
+      menuSettings2();
+    } else if(in == UP){
+      ;
+    } else if(in == DOWN){
+      ;
+    } else if(in == RIGHT) {
+      menuTest();
+    } else if(in == BTN){
+      waitForBtnUp();
+      // lcd.setCursor(0, 0);
+      // lcd.print("calibrate");
+      calibrate();
+      
     }
 
     delay(UI_DELAY);

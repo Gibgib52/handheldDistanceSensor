@@ -8,6 +8,7 @@ void menuAlarm();
 void menuMain(); // ^^ left | VV right | <- order of menus
 void menuSettings();
 void menuSettings2();
+void menuSettings3();
 void menuTest();
 
 
