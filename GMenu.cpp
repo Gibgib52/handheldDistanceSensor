@@ -198,7 +198,7 @@ void menuTest(){
 
     int in = waitForInput();
     if(in == LEFT){
-      menuSettings2();
+      menuSettings3();
     } else if(in == RIGHT){
       ;
     } else if(in == UP){
