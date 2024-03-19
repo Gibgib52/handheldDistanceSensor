@@ -39,8 +39,6 @@ void calibrate(){
   Serial.println(temperature);
   Serial.print("humid=");
   Serial.println(humidity);
-
-  lcd.print(temperature);
   
   // update current speed of sound https://www.reddit.com/r/arduino/comments/gdysbx/temperature_and_humidity_ultrasonic_rangefinder/
   //  base c   temp coeff     humid coeff
