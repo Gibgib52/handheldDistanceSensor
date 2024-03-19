@@ -8,8 +8,10 @@ using ace_sorting::shellSortKnuth;
 
 // extern must be defined in file scope, not function scope
 
-float humidity = 0.5; // in percent relative humidity
-float temperature = 20.0; // celsius
+DHT11 dht(DHT_PIN);
+// default values for environment
+int humidity = 0.5; 
+int temperature = 20; // celsius
 float c = 0.0343; // speed of sound, in cm/us
 
 // setup ranger
@@ -17,13 +19,26 @@ void setupR(){
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 
-  dht11 DHT11;
+  
 }
 
 // update humid and temp with current readings
-//TODO: read from humid and temp sensor
+//TODO: Figure out why multiple dht11 sensors timeout using 2 different libraries
 //TODO: add new menu for calibration and manual adjustment of temp and humid values
 void calibrate(){
+  int chk = dht.readTemperatureHumidity(temperature, humidity);
+  Serial.print("chk=");
+  Serial.println(chk);
+
+  Serial.println(DHT11::getErrorString(chk));
+
+  // temperature =
+  // humidity =
+
+  Serial.print("tmp=");
+  Serial.println(temperature);
+  Serial.print("humid=");
+  Serial.println(humidity);
 
   lcd.print(temperature);
   

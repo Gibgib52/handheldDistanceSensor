@@ -6,7 +6,7 @@
 #include <string.h>
 
 #include "globals.hpp"
-#include "dht11.h"
+#include <DHT11.h>
 
 // one-time globals
 
@@ -23,10 +23,10 @@ extern std::map<String, int, 64> kana;
 
 bool light;
 
-extern dht11 DHT11;
+extern DHT11 dht;
 
-extern float humidity;
-extern float temperature;
+extern int humidity;
+extern int temperature;
 extern float c;
 
 

@@ -34,12 +34,14 @@ int main(){
   delay(50);
   digitalWrite(LIGHT_PIN, LOW);
 
+  lcd.setCursor(0,0);
   lcd.print("press btn");
 
   // testing /////////////
-
-  calibrate();
-
+  while(true){
+    delay(2000);
+    calibrate();
+  }
   //////////////////
 
 
