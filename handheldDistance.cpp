@@ -38,10 +38,10 @@ int main(){
   lcd.print("press btn");
 
   // testing /////////////
-  while(true){
-    delay(2000);
-    calibrate();
-  }
+  // while(true){
+    // delay(2000);
+    // calibrate();
+  // }
   //////////////////
 
 
