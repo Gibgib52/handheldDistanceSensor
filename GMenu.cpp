@@ -27,8 +27,19 @@ void menuMain(){
     lcd.print("R");
     lcd.setCursor(0,0);
 
+
+    // range handling
+    if(memRng > MAX_RANGE){
+      lcd.setCursor(10, 0);
+      lcd.print(">MAX");
+    }else if (memRng < MIN_RANGE){
+      lcd.setCursor(10, 0);
+      lcd.print(">MIN");
+    }
+    lcd.setCursor(0,0);
     lcd.print(memRng);
     lcd.print(" cm");
+    
 
     // print samples and mode
     lcd.setCursor(0,1);
@@ -139,24 +150,16 @@ void menuSettings2(){
   }
 }
 
-// calibrate automatic
+// unused
 void menuSettings3(){
   waitForCenter();
   while(true){
     lcd.clear();
-    lcd.setCursor(14,0);
-    lcd.print("CA");
+    lcd.setCursor(15,0);
+    lcd.print("U");
     lcd.setCursor(0,0);
 
-
-    lcd.print("tmp=");
-    lcd.print(temperature);
-
-    lcd.setCursor(0, 1);
-    lcd.print("Hmd=");
-    lcd.print(humidity);
-
-
+    lcd.print("unused");
 
     int in = waitForInput();
     if(in == LEFT){
@@ -169,9 +172,7 @@ void menuSettings3(){
       menuTest();
     } else if(in == BTN){
       waitForBtnUp();
-      // lcd.setCursor(0, 0);
-      // lcd.print("calibrate");
-      calibrate();
+      ;
       
     }
 

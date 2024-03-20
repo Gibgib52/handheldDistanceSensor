@@ -8,42 +8,16 @@ using ace_sorting::shellSortKnuth;
 
 // extern must be defined in file scope, not function scope
 
-DHT11 dht(DHT_PIN);
-// default values for environment
-int humidity = 0.5; 
-int temperature = 20; // celsius
-float c = 0.0343; // speed of sound, in cm/us
+// float temperature = 20,0;
+// float humidity = 20.0;
+// update current speed of sound https://www.reddit.com/r/arduino/comments/gdysbx/temperature_and_humidity_ultrasonic_rangefinder/
+//  base c   temp coeff     humid coeff
+// float c = 331.4 + (0.606*temperature) + (0.0124*humidity);
 
 // setup ranger
 void setupR(){
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-
-  
-}
-
-// update humid and temp with current readings
-//TODO: Figure out why multiple dht11 sensors timeout using 2 different libraries
-//TODO: add new menu for calibration and manual adjustment of temp and humid values
-void calibrate(){
-  int chk = dht.readTemperatureHumidity(temperature, humidity);
-  Serial.print("chk=");
-  Serial.println(chk);
-
-  Serial.println(DHT11::getErrorString(chk));
-
-  // temperature =
-  // humidity =
-
-  Serial.print("tmp=");
-  Serial.println(temperature);
-  Serial.print("humid=");
-  Serial.println(humidity);
-  
-  // update current speed of sound https://www.reddit.com/r/arduino/comments/gdysbx/temperature_and_humidity_ultrasonic_rangefinder/
-  //  base c   temp coeff     humid coeff
-  c = 331.4 + (0.606*temperature) + (0.0124*humidity);
-
 }
 
 // returns distance in cm
@@ -58,8 +32,6 @@ float getRange() {
   digitalWrite(trigPin, LOW);
 
   float duration = pulseIn(echoPin, HIGH); // pulseIn returns time in microseconds
-
-  
 
 
 
