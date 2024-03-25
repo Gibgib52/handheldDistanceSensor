@@ -25,10 +25,9 @@
 // lcd pins
 const int rs = 12, en = 11, d4 = 9, d5 = 8, d6 = 7, d7 = 6;
 
-// rgb led pins
-#define RGB_R
-#define RGB_G
-#define RGB_B
+#define BUZZ_PIN 53
+
+
 
 // no changing below
 
@@ -54,6 +53,7 @@ extern int userSamples;
 extern float memRng;
 
 extern bool light;
+extern bool buzzFlag;
 
 extern bool debug;
 

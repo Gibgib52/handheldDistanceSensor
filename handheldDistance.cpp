@@ -22,6 +22,8 @@ int main(){
   setupJ();
   setupR();
 
+  pinMode(BUZZ_PIN, OUTPUT);
+
   
 
   String temp = "fu fu ten ki nn ku ten";
@@ -39,9 +41,17 @@ int main(){
 
   // testing /////////////
   // while(true){
-    // delay(2000);
-    // calibrate();
+  //   buzzUp();
+  //   delay(1000);
+  //   buzzDown();
+  //   delay(1000);
+  //   buzzSuccess();
+  //   delay(1000);
+  //   buzzFault();
+  //   delay(1000);
   // }
+
+
   //////////////////
 
 

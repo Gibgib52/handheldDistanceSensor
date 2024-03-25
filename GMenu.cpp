@@ -7,10 +7,13 @@
 // util funcs begin
 
 void setupM(){
+  // defaults
   userSamples = 1;
   mode = AVG;
   memRng = 52.52;
   light = false;
+  buzzFlag = false;
+
 
   pinMode(LIGHT_PIN, OUTPUT);
 }
@@ -55,6 +58,16 @@ void menuMain(){
       lcd.setCursor(15,1);
       lcd.print("*");
       memRng = avgRange(userSamples, debug);
+
+      // play correct sound
+      if(memRng > MAX_RANGE){
+        buzzFault();
+      }else if (memRng < MIN_RANGE){
+        buzzFault();
+      }else{
+        buzzSuccess();
+      }
+      
     } else if(in == RIGHT){
       menuSettings();
     } else if(in == LEFT){
@@ -150,16 +163,21 @@ void menuSettings2(){
   }
 }
 
-// unused
 void menuSettings3(){
   waitForCenter();
   while(true){
     lcd.clear();
-    lcd.setCursor(15,0);
-    lcd.print("U");
+    lcd.setCursor(14,0);
+    lcd.print("S3");
     lcd.setCursor(0,0);
 
-    lcd.print("unused");
+    lcd.print("buzz=");
+    
+    if(buzzFlag){
+      lcd.print("true");
+    }else{
+      lcd.print("false");
+    }
 
     int in = waitForInput();
     if(in == LEFT){
@@ -172,8 +190,13 @@ void menuSettings3(){
       menuTest();
     } else if(in == BTN){
       waitForBtnUp();
-      ;
       
+      // toggle buzzflag
+      if(buzzFlag){
+        buzzFlag = false;
+      }else{
+        buzzFlag = true;
+      }
     }
 
     delay(UI_DELAY);
@@ -234,7 +257,9 @@ void menuAlarm(){
 
     int in = waitForInput();
     if(in == BTN){
+      buzzUp();
       alarmLoop();
+      buzzDown();
     } else if(in == RIGHT){
       menuMain();
     } else if(in == LEFT){
@@ -253,14 +278,18 @@ void alarmLoop(){
   float prevAlarmDist = 0;
   delay(200); // to stop instant break
   while(true) {
+    lcd.setCursor(15,1);
+    lcd.print("*");
+    lcd.setCursor(0,0);
     float dist = avgRange(userSamples, debug);
+    lcd.setCursor(15,1);
+    lcd.print(" ");
+    lcd.setCursor(0,0);
     
     lcd.clear();
     // header
     lcd.setCursor(15,0);
     lcd.print("A");
-    lcd.setCursor(15,1);
-    lcd.print("*");
     lcd.setCursor(0,0);
 
     lcd.print("dist=  ");
@@ -274,8 +303,9 @@ void alarmLoop(){
       prevAlarmDist = dist;
       lcd.setCursor(0,0);
       lcd.print("*ALARM*");
+      buzzArp();
     }
-    delay(500);
+    delay(500); // rescan every 500 ms
     if(joyBtnDown()){
       break;
     }

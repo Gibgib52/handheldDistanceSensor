@@ -1,10 +1,138 @@
-// for display effects
+// for support functions, like for display or buzzer
 
 #include "GDis.hpp"
 #include "globals.hpp"
 #include <ArxContainer.h>
 #include <string.h>
 #include <TimeOut.h>
+
+
+
+
+
+  // 3 note up noise
+void buzzUp(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 50;
+
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  tone(BUZZ_PIN, 600);
+  delay(interval);
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzDown(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 50;
+
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  tone(BUZZ_PIN, 600);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzSuccess(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 50;
+
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  noTone(BUZZ_PIN);
+  delay(interval);
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzFault(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 50;
+
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  noTone(BUZZ_PIN);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzHiLo(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 100;
+
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzArp(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 50;
+
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzS(){
+  if(!buzzFlag){
+    return;
+  }
+
+  tone(BUZZ_PIN, 800);
+  delay(50);
+  noTone(BUZZ_PIN);
+}
+
+void buzzL(){
+  if(!buzzFlag){
+    return;
+  }
+  
+  tone(BUZZ_PIN, 400);
+  delay(50);
+  noTone(BUZZ_PIN);
+}
+
+
+
 
 // flashes text on lcd
 // default 2 flashes, 100 ms interval

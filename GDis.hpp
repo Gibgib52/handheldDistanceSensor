@@ -8,3 +8,12 @@ void writeKana(String str);
 extern std::map<String, int, 64> kana;
 
 extern std::map<String, int, 64> dakutenKana;
+
+void buzzUp();
+void buzzDown();
+void buzzSuccess();
+void buzzFault();
+void buzzHiLo();
+void buzzArp();
+void buzzS();
+void buzzL();
