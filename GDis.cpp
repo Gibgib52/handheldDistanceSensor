@@ -1,9 +1,137 @@
-// for display effects
+// for support functions, like for display or buzzer
 
 #include "GDis.hpp"
 #include "globals.hpp"
 #include <ArxContainer.h>
 #include <string.h>
+#include <TimeOut.h>
+
+
+
+
+
+  // 3 note up noise
+void buzzUp(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 50;
+
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  tone(BUZZ_PIN, 600);
+  delay(interval);
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzDown(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 50;
+
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  tone(BUZZ_PIN, 600);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzSuccess(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 50;
+
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  noTone(BUZZ_PIN);
+  delay(interval);
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzFault(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 50;
+
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  noTone(BUZZ_PIN);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzHiLo(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 100;
+
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzArp(){
+  if(!buzzFlag){
+    return;
+  }
+
+  int interval = 50;
+
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  tone(BUZZ_PIN, 800);
+  delay(interval);
+  tone(BUZZ_PIN, 400);
+  delay(interval);
+  noTone(BUZZ_PIN);
+}
+
+void buzzS(){
+  if(!buzzFlag){
+    return;
+  }
+
+  tone(BUZZ_PIN, 800);
+  delay(50);
+  noTone(BUZZ_PIN);
+}
+
+void buzzL(){
+  if(!buzzFlag){
+    return;
+  }
+  
+  tone(BUZZ_PIN, 400);
+  delay(50);
+  noTone(BUZZ_PIN);
+}
+
+
 
 
 // flashes text on lcd
@@ -82,7 +210,7 @@ void writeKana(String str){
 // }
 // for now write "ku ten" for "gu"
 
-// making size_t = 512 fixed the problem
+// making size_t = 64 fixed the problem
 // size could problably be adjusted later
 // use () for jp style quotes
 std::map<String, int, 64> kana = {
@@ -166,6 +294,9 @@ std::map<String, int, 64> kana = {
   // dakuten and handakuten
   {"ten", 0b11011110},
   {"han", 0b11011111},
+
+  {"(", 0b10100010},
+  {")", 0b10100011},
 };
 
 // unused

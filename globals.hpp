@@ -21,14 +21,18 @@
 
 #define LIGHT_PIN 31
 
-#define DHT_PIN 10
-
 
 // lcd pins
 const int rs = 12, en = 11, d4 = 9, d5 = 8, d6 = 7, d7 = 6;
 
+#define BUZZ_PIN 53
+
+
 
 // no changing below
+
+#define MAX_RANGE 400
+#define MIN_RANGE 3
 
 #define UP 1
 #define DOWN -1
@@ -49,13 +53,12 @@ extern int userSamples;
 extern float memRng;
 
 extern bool light;
+extern bool buzzFlag;
 
 extern bool debug;
 
 extern std::map<String, int, 64> kana;
 
-extern int humidity;
-extern int temperature;
+extern float humidity;
+extern float temperature;
 extern float c;
-
-// extern dht11 DHT11;

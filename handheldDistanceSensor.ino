@@ -22,11 +22,11 @@ int mode;
 extern std::map<String, int, 64> kana;
 
 bool light;
-
+bool buzzFlag;
 extern DHT11 dht;
 
-extern int humidity;
-extern int temperature;
+extern float humidity;
+extern float temperature;
 extern float c;
 
 
