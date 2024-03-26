@@ -24,6 +24,7 @@ void setupR(){
 
 // update humid and temp with current readings
 //TODO: Figure out why multiple dht11 sensors timeout using 2 different libraries
+// https://github.com/momenso/node-dht-sensor/issues/116
 //TODO: add new menu for calibration and manual adjustment of temp and humid values
 void calibrate(){
   int chk = dht.readTemperatureHumidity(temperature, humidity);
