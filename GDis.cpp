@@ -10,7 +10,7 @@
 
 
 
-  // 3 note up noise
+// 3 note ascending
 void buzzUp(){
   if(!buzzFlag){
     return;
@@ -27,6 +27,7 @@ void buzzUp(){
   noTone(BUZZ_PIN);
 }
 
+// 3 note descending
 void buzzDown(){
   if(!buzzFlag){
     return;
@@ -43,6 +44,7 @@ void buzzDown(){
   noTone(BUZZ_PIN);
 }
 
+// double high
 void buzzSuccess(){
   if(!buzzFlag){
     return;
@@ -59,6 +61,7 @@ void buzzSuccess(){
   noTone(BUZZ_PIN);
 }
 
+// double low 
 void buzzFault(){
   if(!buzzFlag){
     return;
@@ -75,6 +78,7 @@ void buzzFault(){
   noTone(BUZZ_PIN);
 }
 
+// high low
 void buzzHiLo(){
   if(!buzzFlag){
     return;
@@ -93,6 +97,7 @@ void buzzHiLo(){
   noTone(BUZZ_PIN);
 }
 
+// Arpeggio
 void buzzArp(){
   if(!buzzFlag){
     return;
@@ -111,6 +116,7 @@ void buzzArp(){
   noTone(BUZZ_PIN);
 }
 
+// single high
 void buzzS(){
   if(!buzzFlag){
     return;
@@ -121,7 +127,8 @@ void buzzS(){
   noTone(BUZZ_PIN);
 }
 
-void buzzL(){
+// single low 
+void buzzF(){
   if(!buzzFlag){
     return;
   }
@@ -154,6 +161,7 @@ void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y =
     delay(interval);
   }
 }
+
 
 // write katakana out to the lcd
 // txt must be romaji seperated by spaces
