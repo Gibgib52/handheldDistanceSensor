@@ -6,7 +6,6 @@
 #include <string.h>
 
 #include "globals.hpp"
-#include <DHT11.h>
 
 // one-time globals
 
@@ -23,7 +22,6 @@ extern std::map<String, int, 64> kana;
 
 bool light;
 bool buzzFlag;
-extern DHT11 dht;
 
 extern float humidity;
 extern float temperature;

@@ -1,7 +1,6 @@
 #include <math.h>
 #include "Ranger.hpp"
 #include "globals.hpp"
-#include "dht11.h"
 
 #include <AceSorting.h>
 using ace_sorting::shellSortKnuth;
@@ -20,29 +19,27 @@ void setupR(){
   pinMode(echoPin, INPUT);
 }
 
-// update humid and temp with current readings
-//TODO: Figure out why multiple dht11 sensors timeout using 2 different libraries
-// https://github.com/momenso/node-dht-sensor/issues/116
+
 //TODO: add new menu for calibration and manual adjustment of temp and humid values
-void calibrate(){
-  int chk = dht.readTemperatureHumidity(temperature, humidity);
-  Serial.print("chk=");
-  Serial.println(chk);
+// void calibrate(){
+//   int chk = dht.readTemperatureHumidity(temperature, humidity);
+//   Serial.print("chk=");
+//   Serial.println(chk);
 
-  Serial.println(DHT11::getErrorString(chk));
+//   Serial.println(DHT11::getErrorString(chk));
 
-  // temperature =
-  // humidity =
+//   // temperature =
+//   // humidity =
 
-  Serial.print("tmp=");
-  Serial.println(temperature);
-  Serial.print("humid=");
-  Serial.println(humidity);
+//   Serial.print("tmp=");
+//   Serial.println(temperature);
+//   Serial.print("humid=");
+//   Serial.println(humidity);
   
-  // update current speed of sound https://www.reddit.com/r/arduino/comments/gdysbx/temperature_and_humidity_ultrasonic_rangefinder/
-  //  base c   temp coeff     humid coeff
-  c = 331.4 + (0.606*temperature) + (0.0124*humidity);
-}
+//   // update current speed of sound https://www.reddit.com/r/arduino/comments/gdysbx/temperature_and_humidity_ultrasonic_rangefinder/
+//   //  base c   temp coeff     humid coeff
+//   c = 331.4 + (0.606*temperature) + (0.0124*humidity);
+// }
 
 // returns distance in cm
 //WIP: Account for humid and temp

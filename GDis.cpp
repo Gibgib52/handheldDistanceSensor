@@ -4,7 +4,6 @@
 #include "globals.hpp"
 #include <ArxContainer.h>
 #include <string.h>
-#include <TimeOut.h>
 
 
 
@@ -138,12 +137,32 @@ void buzzF(){
   noTone(BUZZ_PIN);
 }
 
+// untested
+void sadTrum(){
+  if(!buzzFlag){
+    return;
+  }
 
+  tone(BUZZ_PIN, 700);
+  delay(50);
+  tone(BUZZ_PIN, 600);
+  delay(50);
+
+  // vibratto
+  for(int i = 0; i < 10; i++){
+    tone(BUZZ_PIN, 400);
+    delay(10);
+    tone(BUZZ_PIN, 350);
+    delay(10);
+  }
+  noTone(BUZZ_PIN);
+}
 
 
 // flashes text on lcd
 // default 2 flashes, 100 ms interval
 // preserves screen content(excluding what txt overwrites), doesnt lcd.clear()
+// unused
 void flashTxt(char* txt, int flashes = 2, int interval = 200, int x = 0, int y = 0){
   int len = strlen(txt);
   for(int i = 0; i < flashes; i++){

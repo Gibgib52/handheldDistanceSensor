@@ -2,7 +2,6 @@
 #include <LiquidCrystal.h>
 #include <AlignedJoy.h>
 #include <ArxContainer.h>
-#include <DHT11.h>
 
 // settings
 #define BAUD_RATE 9600

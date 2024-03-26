@@ -17,3 +17,4 @@ void buzzHiLo();
 void buzzArp();
 void buzzS();
 void buzzL();
+void sadTrum();
