@@ -9,12 +9,13 @@ extern std::map<String, int, 64> kana;
 
 extern std::map<String, int, 64> dakutenKana;
 
-void buzzUp();
-void buzzDown();
-void buzzSuccess();
-void buzzFault();
-void buzzHiLo();
-void buzzArp();
-void buzzS();
-void buzzL();
-void sadTrum();
+extern std::map<String, int, 64> spec;
+
+void buzzUp(bool force = false);
+void buzzDown(bool force = false);
+void buzzSuccess(bool force = false);
+void buzzFault(bool force = false);
+void buzzHiLo(bool force = false);
+void buzzArp(bool force = false);
+void buzzS(bool force = false);
+void buzzL(bool force = false);

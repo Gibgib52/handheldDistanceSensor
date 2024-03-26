@@ -10,154 +10,123 @@
 
 
 // 3 note ascending
-void buzzUp(){
-  if(!buzzFlag){
-    return;
+void buzzUp(bool force = false){
+  if(buzzFlag || force){
+    int interval = 50;
+
+    tone(BUZZ_PIN, 400);
+    delay(interval);
+    tone(BUZZ_PIN, 600);
+    delay(interval);
+    tone(BUZZ_PIN, 800);
+    delay(interval);
+    noTone(BUZZ_PIN);
   }
-
-  int interval = 50;
-
-  tone(BUZZ_PIN, 400);
-  delay(interval);
-  tone(BUZZ_PIN, 600);
-  delay(interval);
-  tone(BUZZ_PIN, 800);
-  delay(interval);
-  noTone(BUZZ_PIN);
 }
 
 // 3 note descending
-void buzzDown(){
-  if(!buzzFlag){
-    return;
+void buzzDown(bool force = false){
+  if(buzzFlag || force){
+
+    int interval = 50;
+
+    tone(BUZZ_PIN, 800);
+    delay(interval);
+    tone(BUZZ_PIN, 600);
+    delay(interval);
+    tone(BUZZ_PIN, 400);
+    delay(interval);
+    noTone(BUZZ_PIN);
   }
-
-  int interval = 50;
-
-  tone(BUZZ_PIN, 800);
-  delay(interval);
-  tone(BUZZ_PIN, 600);
-  delay(interval);
-  tone(BUZZ_PIN, 400);
-  delay(interval);
-  noTone(BUZZ_PIN);
 }
 
 // double high
-void buzzSuccess(){
-  if(!buzzFlag){
-    return;
+void buzzSuccess(bool force = false){
+  if(buzzFlag || force){
+
+    int interval = 50;
+
+    tone(BUZZ_PIN, 800);
+    delay(interval);
+    noTone(BUZZ_PIN);
+    delay(interval);
+    tone(BUZZ_PIN, 800);
+    delay(interval);
+    noTone(BUZZ_PIN);
   }
-
-  int interval = 50;
-
-  tone(BUZZ_PIN, 800);
-  delay(interval);
-  noTone(BUZZ_PIN);
-  delay(interval);
-  tone(BUZZ_PIN, 800);
-  delay(interval);
-  noTone(BUZZ_PIN);
 }
 
 // double low 
-void buzzFault(){
-  if(!buzzFlag){
-    return;
+void buzzFault(bool force = false){
+  if(buzzFlag || force){
+
+    int interval = 50;
+
+    tone(BUZZ_PIN, 400);
+    delay(interval);
+    noTone(BUZZ_PIN);
+    delay(interval);
+    tone(BUZZ_PIN, 400);
+    delay(interval);
+    noTone(BUZZ_PIN);
   }
-
-  int interval = 50;
-
-  tone(BUZZ_PIN, 400);
-  delay(interval);
-  noTone(BUZZ_PIN);
-  delay(interval);
-  tone(BUZZ_PIN, 400);
-  delay(interval);
-  noTone(BUZZ_PIN);
 }
 
 // high low
-void buzzHiLo(){
-  if(!buzzFlag){
-    return;
+void buzzHiLo(bool force = false){
+  if(buzzFlag || force){
+
+    int interval = 100;
+
+    tone(BUZZ_PIN, 800);
+    delay(interval);
+    tone(BUZZ_PIN, 400);
+    delay(interval);
+    tone(BUZZ_PIN, 800);
+    delay(interval);
+    tone(BUZZ_PIN, 400);
+    delay(interval);
+    noTone(BUZZ_PIN);
   }
-
-  int interval = 100;
-
-  tone(BUZZ_PIN, 800);
-  delay(interval);
-  tone(BUZZ_PIN, 400);
-  delay(interval);
-  tone(BUZZ_PIN, 800);
-  delay(interval);
-  tone(BUZZ_PIN, 400);
-  delay(interval);
-  noTone(BUZZ_PIN);
 }
 
 // Arpeggio
-void buzzArp(){
-  if(!buzzFlag){
-    return;
+void buzzArp(bool force = false){
+  if(buzzFlag || force){
+
+    int interval = 50;
+
+    tone(BUZZ_PIN, 800);
+    delay(interval);
+    tone(BUZZ_PIN, 400);
+    delay(interval);
+    tone(BUZZ_PIN, 800);
+    delay(interval);
+    tone(BUZZ_PIN, 400);
+    delay(interval);
+    noTone(BUZZ_PIN);
   }
-
-  int interval = 50;
-
-  tone(BUZZ_PIN, 800);
-  delay(interval);
-  tone(BUZZ_PIN, 400);
-  delay(interval);
-  tone(BUZZ_PIN, 800);
-  delay(interval);
-  tone(BUZZ_PIN, 400);
-  delay(interval);
-  noTone(BUZZ_PIN);
 }
 
 // single high
-void buzzS(){
-  if(!buzzFlag){
-    return;
-  }
+void buzzS(bool force = false){
+  if(buzzFlag || force){
 
-  tone(BUZZ_PIN, 800);
-  delay(50);
-  noTone(BUZZ_PIN);
+    tone(BUZZ_PIN, 800);
+    delay(50);
+    noTone(BUZZ_PIN);
+  }
 }
 
 // single low 
-void buzzF(){
-  if(!buzzFlag){
-    return;
-  }
+void buzzF(bool force = false){
+  if(buzzFlag || force){
   
-  tone(BUZZ_PIN, 400);
-  delay(50);
-  noTone(BUZZ_PIN);
-}
-
-// untested
-void sadTrum(){
-  if(!buzzFlag){
-    return;
-  }
-
-  tone(BUZZ_PIN, 700);
-  delay(50);
-  tone(BUZZ_PIN, 600);
-  delay(50);
-
-  // vibratto
-  for(int i = 0; i < 10; i++){
     tone(BUZZ_PIN, 400);
-    delay(10);
-    tone(BUZZ_PIN, 350);
-    delay(10);
+    delay(50);
+    noTone(BUZZ_PIN);
   }
-  noTone(BUZZ_PIN);
 }
-
 
 // flashes text on lcd
 // default 2 flashes, 100 ms interval
@@ -356,17 +325,17 @@ std::map<String, int, 64> dakutenKana = {
 };
 
 // other special chars
-namespace spec{
-  int alpha = 0b11100000;
-  int beta = 0b11100010;
-  int epsilon = 0b11100011;
-  int mu = 0b11100100;
-  int micro = mu;
+std::map<String, int, 64> spec{
+  {"alpha", 0b11100000},
+  {"beta", 0b11100010},
+  {"epsilon", 0b11100011},
+  {"mu", 0b11100100},
+  {"micro", 0b11100100},
 
-  int sqrt = 0b11101000;
+  {"sqrt", 0b11101000},
 
-  int lArrow = 0b01111110;
-  int rArrow = 0b01111111;
+  {"lArrow", 0b01111110},
+  {"rArrow", 0b01111111},
 
-  int deg = 0b11011111;
-}
+  {"deg", 0b11011111},
+};

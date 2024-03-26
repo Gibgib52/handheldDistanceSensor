@@ -21,7 +21,6 @@ int main(){
   lcd.begin(16,2);
   setupJ();
   setupR();
-
   pinMode(BUZZ_PIN, OUTPUT);
 
   
@@ -40,16 +39,7 @@ int main(){
   lcd.print("press btn");
 
   // testing /////////////
-  // while(true){
-  //   buzzUp();
-  //   delay(1000);
-  //   buzzDown();
-  //   delay(1000);
-  //   buzzSuccess();
-  //   delay(1000);
-  //   buzzFault();
-  //   delay(1000);
-  // }
+  
 
 
   //////////////////

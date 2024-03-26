@@ -65,7 +65,7 @@ void menuMain(){
       }else if (memRng < MIN_RANGE){
         buzzFault();
       }else{
-        buzzSuccess();
+        buzzS();
       }
       
     } else if(in == RIGHT){
