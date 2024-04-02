@@ -11,20 +11,20 @@
 
 // pin locations
 // for ranger
-#define trigPin 2 // orange
-#define echoPin 3 // blue
+#define trigPin 52 // orange
+#define echoPin 50 // blue
 // for stick
-#define trigButton 5
-#define joyXpin 0
-#define joyYpin 1
+#define trigButton 11
+#define joyXpin 2
+#define joyYpin 3
 
-#define LIGHT_PIN 31
+#define LIGHT_PIN 23
 
 
 // lcd pins
-const int rs = 12, en = 11, d4 = 9, d5 = 8, d6 = 7, d7 = 6;
+const int rs = 53, en = 51, d4 = 49, d5 = 47, d6 = 45, d7 = 43;
 
-#define BUZZ_PIN 53
+#define BUZZ_PIN 39
 
 
 
