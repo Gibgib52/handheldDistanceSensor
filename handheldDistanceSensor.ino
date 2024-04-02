@@ -26,6 +26,3 @@ bool buzzFlag;
 extern float humidity;
 extern float temperature;
 extern float c;
-
-
-// REWRITE THIS WHOLE THING, figure out how multi-file works in cpp
