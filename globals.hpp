@@ -14,6 +14,8 @@
 #define trigPin 52 // orange
 #define echoPin 50 // blue
 // for stick
+/////////////////////
+// nothing in the joystick module is working... fix tomorrow
 #define trigButton 11
 #define joyXpin 2
 #define joyYpin 3
