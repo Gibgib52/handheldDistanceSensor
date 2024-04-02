@@ -11,8 +11,8 @@ int main(){
   // do not remove
   init();
   Serial.begin(BAUD_RATE);
-  while(Serial == NULL){};
-  Serial.println("serial started");
+  // while(Serial == NULL){};
+  // Serial.println("serial started");
 
 
   // sketch begin ////////////////////////////////////////////
