@@ -17,6 +17,7 @@
 /////////////////////
 // nothing in the joystick module is working... fix tomorrow
 #define trigButton 11
+// remember these are analog pins
 #define joyXpin 2
 #define joyYpin 3
 
