@@ -4,10 +4,27 @@
 #include "globals.hpp"
 #include <ArxContainer.h>
 #include <string.h>
+#include "GDis.hpp"
 
 
 
+// type out text, 1 char at a time with word wrap
+// cpm = char per minute
+// return on btn down
+// cpm not implemented
+void typeText(String txt, int cpm = 100){
+  lcd.setCursor(0,0);
+  int len = txt.length();
+  for(int i = 0; i < len; i++){
+    if(i == 16){
+      lcd.setCursor(0, 1);
+    }
+    lcd.print(txt[i]);
+    delay(100);
 
+  }
+
+}
 
 // 3 note ascending
 void buzzUp(bool force = false){

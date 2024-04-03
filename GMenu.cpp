@@ -3,6 +3,10 @@
 #include "Ranger.hpp"
 #include "GJoy.hpp"
 #include "GDis.hpp"
+#include <ArxContainer.h>
+#include <string.h>
+
+#include "helpFunc.hpp"
 
 // util funcs begin
 
@@ -263,7 +267,7 @@ void menuAlarm(){
     } else if(in == RIGHT){
       menuMain();
     } else if(in == LEFT){
-      ;
+      menuHelp();
     } else if(in == UP){
       prescribedDist++;
     } else if(in == DOWN){
@@ -312,7 +316,47 @@ void alarmLoop(){
   }
 }
 
-// 
-// void menuSettings4(){
+
+const int pageDelay = 100;
+void menuHelp(){
+  waitForCenter();
+
+  int y = 0;
+  while(true){
+    lcd.clear();
+    lcd.setCursor(15,0);
+    lcd.print("H");
+    lcd.setCursor(0,0);
+
+    lcd.print("pg=");
+    lcd.print(y);
+
+    String title = getTitle(y);
+    lcd.setCursor(0,1);
+    lcd.print(title);
+
+    waitForBtnUp();
+    int in = waitForInput();
+    if(in == BTN){
+      waitForBtnUp();
+      lcd.setCursor(0,0);
+      printHelp(y);
+    } else if(in == RIGHT){
+      menuAlarm();
+    } else if(in == LEFT){
+      ;
+    } else if(in == UP){
+      y--;
+      delay(pageDelay);
+    } else if(in == DOWN){
+      y++;
+      delay(pageDelay);
+    }
+    delay(UI_DELAY);
+  }
+}
+
+// each y value should have a function and title associated with it
+// when btnDown, enter that function ( and display help text with it)
 
 

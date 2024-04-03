@@ -9,7 +9,7 @@ void menuMain(); // ^^ left | VV right | <- order of menus
 void menuSettings();
 void menuSettings2();
 void menuSettings3();
-// void menuSettings4();
+void menuHelp();
 void menuTest();
 
 

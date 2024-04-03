@@ -1,0 +1,10 @@
+def h_range():
+	...
+
+def h_alarm():
+	...
+
+pages = [
+	[1, "range", h_range],
+	[2, "alarm", h_alarm],
+]
