@@ -5,22 +5,46 @@
 #include <ArxContainer.h>
 #include <string.h>
 #include "GDis.hpp"
+#include "GJoy.hpp"
 
 
 
-// type out text, 1 char at a time with word wrap
+// type out text, 1 char at a time, alternating between the 2 lines of the lcd
 // cpm = char per minute
 // return on btn down
 // cpm not implemented
-void typeText(String txt, int cpm = 100){
+void typeText(String txt, int cpm = 600){
   lcd.setCursor(0,0);
   int len = txt.length();
+
+  // char per second
+  float cps = cpm/60;
+
+  float secPerChar = 1/cps;
+  float milisecondPerChar = secPerChar*1000;
+
+
+  bool line1 = false;
   for(int i = 0; i < len; i++){
-    if(i == 16){
-      lcd.setCursor(0, 1);
+    if(i % 16 == 0){
+      line1 = !line1;
+
+      if(line1){
+        lcd.setCursor(0,0);
+        lcd.print("                "); // 16 spaces
+        lcd.setCursor(0,0);
+      } else {
+        lcd.setCursor(0,1);
+        lcd.print("                "); // 16 spaces
+        lcd.setCursor(0,1);
+      }
     }
     lcd.print(txt[i]);
-    delay(100);
+
+    if(joyBtnDown()){
+      return;
+    }
+    delay(milisecondPerChar);
 
   }
 

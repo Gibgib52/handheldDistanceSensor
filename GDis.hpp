@@ -20,4 +20,4 @@ void buzzArp(bool force = false);
 void buzzS(bool force = false);
 void buzzL(bool force = false);
 
-void typeText(String txt, int cpm = 100);
+void typeText(String txt, int cpm = 600);
