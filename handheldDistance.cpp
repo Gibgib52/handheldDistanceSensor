@@ -24,13 +24,6 @@ int main(){
   setupR();
   pinMode(BUZZ_PIN, OUTPUT);
 
-  
-
-  String temp = "fu fu ten ki nn ku ten";
-  // String temp = "a i u e o o o";
-  lcd.setCursor(0,1);
-  writeKana(temp);
-
   // blink light when started
   digitalWrite(LIGHT_PIN, HIGH);
   delay(50);
@@ -40,8 +33,10 @@ int main(){
   lcd.print("press btn");
 
   // testing /////////////
-  
-
+  String temp = "fu fu ten ki nn ku ten";
+  // String temp = "a i u e o o o";
+  lcd.setCursor(0,1);
+  writeKana(temp);
 
   //////////////////
 
