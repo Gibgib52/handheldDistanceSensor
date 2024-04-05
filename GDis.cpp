@@ -12,7 +12,6 @@
 // type out text, 1 char at a time, alternating between the 2 lines of the lcd
 // cpm = char per minute
 // return on btn down
-// cpm not implemented
 void typeText(String txt, int cpm = 600){
   lcd.setCursor(0,0);
   int len = txt.length();
