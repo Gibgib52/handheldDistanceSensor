@@ -12,7 +12,7 @@ void h_ranging(){
   "an object with  "
   "1m^2 surf. area."
   "and within 30deg"
-  "angle of obj    "
+  "angle of surface"
   "careful of multi"
   "path or uninten "
   "ded echoes      ";
