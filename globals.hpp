@@ -14,7 +14,7 @@
 #define trigPin 52 // orange
 #define echoPin 50 // blue
 // for stick
-#define trigButton 2
+#define trigButton 24
 // remember these are analog pins
 #define joyXpin 13
 #define joyYpin 14
