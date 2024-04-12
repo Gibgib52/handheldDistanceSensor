@@ -3,6 +3,7 @@
 
 void setupJ(){
   pinMode(trigButton, INPUT_PULLUP);
+  pinMode(frontTrig, INPUT_PULLUP);
 }
 
 int waitForInput(){
@@ -14,17 +15,18 @@ int waitForInput(){
     // stick.read returns analog value from 0 to 1023
 
     if(x > 800) {
-      return RIGHT;
-    } else if(x < 300){
       return LEFT;
+    } else if(x < 300){
+      return RIGHT;
     } else if(y > 800){
-      return UP;
-    } else if(y < 300){
       return DOWN;
+    } else if(y < 300){
+      return UP;
     }
 
     bool button = !digitalRead(trigButton);
-    if(button == true) {
+    bool trigger = !digitalRead(frontTrig);
+    if((button || trigger) == true) {
       return 3;
     }
   }
@@ -32,7 +34,8 @@ int waitForInput(){
 
 bool joyBtnDown(){
   bool button = !digitalRead(trigButton);
-  return button;
+  bool trigger = !digitalRead(frontTrig);
+  return (button || trigger);
 }
 
 void waitForBtnUp(){

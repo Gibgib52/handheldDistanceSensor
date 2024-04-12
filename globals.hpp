@@ -15,6 +15,7 @@
 #define echoPin 50 // blue
 // for stick
 #define trigButton 24
+#define frontTrig 25
 // remember these are analog pins
 #define joyXpin 13
 #define joyYpin 14
