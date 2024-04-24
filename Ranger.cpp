@@ -56,7 +56,7 @@ float getRange() {
 
 
 
-  float distance = (duration*0.0343)/2;
+  float distance = (duration*0.0343)/2; // returns distance in cm
   return distance;
 }
 
